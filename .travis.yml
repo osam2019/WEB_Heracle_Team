@@ -1,5 +1,9 @@
 language: node_js
 node_js: 10
-script: npm run test
+script: npm run build:prod
 notifications:
+  slack:
+    if: branch = master
+    rooms:
+      - heracle:$SLACK_TOKEN#development
   email: false
