@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="main-view-container">
     <el-row class="main-header">
       <div class="logo-container"><img :src="logoImg"/></div>
@@ -37,10 +38,15 @@
       </el-col>
     </el-row>
 
+=======
+  <div class="main-container">
+      <h1> This is main page</h1>
+>>>>>>> add basig routing setting
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { mapGetters } from 'vuex'
 import logoImg from '@/assets/image/title.svg'
 import UserInfo from '@/views/main/user.vue'
@@ -158,3 +164,22 @@ export default {
 }
 
 </style>
+=======
+
+export default {
+  data() {
+    return {
+
+    }
+  },
+  methods: {
+
+  }
+}
+</script>
+<style scoped>
+
+
+
+</style>
+>>>>>>> add basig routing setting
