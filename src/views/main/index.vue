@@ -2,7 +2,7 @@
   <div class="main-view-container">
     <el-row class="main-header">
       <div class="logo-container"><img :src="logoImg"/></div>
-      <div class="serach-container">
+      <div class="serach-container" @click="routerToMap($event)">
         <el-input class="search"   size="large" placeholder="Please input" v-model="input"></el-input>
       </div>
       <el-button class="icon" icon="el-icon-search" circle></el-button>
@@ -14,24 +14,24 @@
             <UserInfo :user="user"></UserInfo>
           </div>
           <div class="post-category">
-            <h3> 여기는 포스트 카테고리 입니다.</h3>
+            <PostCategory/>
           </div>
         </div>
       </el-col>
       <el-col :span="14">
         <div class="center-main">
           <div class="logo-button-router">
-            <h3>여기는 로고 버튼이 들어갈 자리입니다.</h3>
+            <CardRouter/>
           </div>
           <div class="card-view-container">
-            <h3> 여기는 카드뷰 컨테이너 입니다.</h3>
+            <CardView/>
           </div>
         </div>
       </el-col>
       <el-col :span="5">
         <div class="right-main">
           <div class = "rank-router">
-            <h3>여기는 랭킹 라우터가 들어갈 자리입니다.</h3>
+            <RankingRouter/>
           </div>
         </div>
       </el-col>
@@ -44,10 +44,18 @@
 import { mapGetters } from 'vuex'
 import logoImg from '@/assets/image/title.svg'
 import UserInfo from '@/views/main/user.vue'
+import CardView from '@/views/main/card-view.vue'
+import CardRouter from '@/views/main/card-router.vue'
+import RankingRouter from '@/views/main/ranking-router.vue'
+import PostCategory from '@/views/main/post-category.vue'
 
 export default {
   components: {
-    UserInfo
+    UserInfo,
+    CardView,
+    CardRouter,
+    RankingRouter,
+    PostCategory
   },
   created() {
     this.getUser()
@@ -70,11 +78,20 @@ export default {
     getUser() {
       this.user = {
         name: this.name,
+        age : 22,
+        weight : 80,
+        height : 184,
+        latest : '2019-10-06',
         role: this.roles.join(' | '),
         email: 'admin@test.com',
         avatar: this.avatar
       }
+    },
+    routerToMap($event){
+      console.log("asdf")
+      this.$router.push('/map')
     }
+
   }
 }
 </script>
@@ -87,7 +104,6 @@ export default {
     .logo-container{
       width : 300px;
       height : 50px;
-      border : 1px solid red;
       margin-right : 20px;
       img{
         margin : 0 auto;
@@ -98,7 +114,6 @@ export default {
     .serach-container{
       width : 1000px;
       height : 50px;
-      border : 1px solid yellow;
       .search{
         width : 100%;
         height : 100%;
@@ -112,30 +127,36 @@ export default {
 
   .main-body{
     .left-main{
-      border : 1px solid black;
       .user-info{
         width : 100%;
         height : 300px;
-        border : 1px solid purple;
+        background: #fff;
+        box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
+        border-color: rgba(0, 0, 0, .05);
       }
       .post-category{
         margin-top : 20px;
         width : 100%;
         height : 500px;
-        border : 1px solid brown;
+        background: #fff;
+        box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
+        border-color: rgba(0, 0, 0, .05);
       }
     }
     .center-main{
       .logo-button-router{
         width : 100%;
         height : 150px;
-        border : 1px solid blue;
+        box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
+        border-color: rgba(0, 0, 0, .05);
       }
       .card-view-container{
         margin-top : 20px;
         width : 100%;
         height : 650px;
-        border : 1px solid red;
+        background: #fff;
+        box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
+        border-color: rgba(0, 0, 0, .05);
       }
     }
 
@@ -143,7 +164,9 @@ export default {
       .rank-router{
         width : 100%;
         height : 300px;
-        border : 1px solid brown;
+        background: #fff;
+        box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
+        border-color: rgba(0, 0, 0, .05);
       }
     }
 

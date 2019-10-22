@@ -1,7 +1,6 @@
 <template>
   <div class="main-container">
-    <h1> this is for map </h1>
-
+      <h1> This is for google maps</h1>
   </div>
 </template>
 
@@ -14,17 +13,12 @@ export default {
     }
   },
   methods: {
-    initialize(){}
-
-  },
-  mounted(){
 
   }
 }
 </script>
 <style scoped>
-.main-container{
-  background : yellow;
-}
+
+
 
 </style>
