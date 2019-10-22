@@ -1,29 +1,24 @@
 <template>
-  <GmapMap :center="pos" :zoom="17" style="width: 100%;">
-    <GmapMarker
+  <GmapMap :center="place" :zoom="17" style="width: 100%;">
+    <!-- <GmapMarker
       v-for="(m, index) in markers"
       :key="index"
       :position="m.position"
       :clickable="true"
       :draggable="true"
       @click="center=m.position"
-    />
+    />-->
   </GmapMap>
 </template>
 <script>
 import { gmapApi } from 'vue2-google-maps'
 
 export default {
-  data() {
-    return {
-      pos: {
-        lat: 37.4803267,
-        lng: 126.7463804
-      }
-    }
-  },
   computed: {
-    google: gmapApi
+    google: gmapApi,
+    place() {
+      return this.$store.state.map.place
+    }
   },
   mounted() {
     const vue = this
@@ -32,11 +27,18 @@ export default {
       var latitude = pos.coords.latitude
       var longitude = pos.coords.longitude
 
-      vue.pos = {
+      vue.$store.commit('SET_PLACE', {
         lat: latitude,
         lng: longitude
-      }
+      })
     })
   }
 }
 </script>
+<style lang="scss" scoped>
+//google maps
+.vue-map-container{
+  width : 100%;
+  height : 100%;
+}
+</style>

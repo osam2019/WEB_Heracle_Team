@@ -1,9 +1,8 @@
 <template>
   <div class="fit-center-list">
     <div class="input">
-      <form @submit="onSubmit(address);">
-        <input v-model="address" placeholder="Address">
-        <button class="btn" type="submit">검색</button>
+      <form>
+        <gmap-autocomplete placeholder="Address" @place_changed="setPlace" />
       </form>
     </div>
     <div class="container">
@@ -29,7 +28,7 @@ export default {
   },
   data() {
     return {
-      address: '',
+      place: '',
       centers: [
         { id: 3, name: 'RH휘트니스', address: '서울시 용산구', grade: 5 },
         {
@@ -65,15 +64,15 @@ export default {
       ]
     }
   },
-  watch: {
-    address: function(val) {
-      console.log(val)
-    }
-  },
   methods: {
-    onSubmit(address) {},
     onCenterItemClicked(item) {
       this.$emit('onFocusCenter', item)
+    },
+    setPlace(place) {
+      this.$store.commit('SET_PLACE', {
+        lat: place.geometry.location.lat(),
+        lng: place.geometry.location.lng()
+      })
     }
   }
 }
@@ -83,6 +82,7 @@ export default {
   list-style-type: none;
 }
 .fit-center-list {
-  width: 30%;
+  width : 100%;
+  height : 100%;
 }
 </style>
