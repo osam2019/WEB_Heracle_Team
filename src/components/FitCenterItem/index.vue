@@ -2,6 +2,7 @@
   <div class="item">
     <p>{{ center.name }}</p>
     <p>{{ center.address }}</p>
+    <el-rate v-model="center.grade" disabled show-score />
   </div>
 </template>
 <script>
