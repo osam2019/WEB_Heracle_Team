@@ -11,7 +11,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 #app{
-  min-width : 1024px;
+  min-width : 1600px;
+  font-family: 'Noto Sans KR', sans-serif !important;
 }
 </style>

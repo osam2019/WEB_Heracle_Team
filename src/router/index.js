@@ -141,7 +141,7 @@ export const asyncRoutes = [
   //   }
   // },
 
-    {
+  {
     path: '/main',
     component: Layout,
     children: [
@@ -152,34 +152,33 @@ export const asyncRoutes = [
         meta: { title: 'Main', icon: 'documentation', affix: true }
       }
     ]
-    },
+  },
 
-    {
-      path: '/map',
-      component: Layout,
-      children: [
-        {
-          path: '',
-          component: () => import('@/views/map/map'),
-          name: 'map',
-          meta: { title: 'Map', icon: 'guide', affix: true }
-        }
-      ]
-    },
-    {
-      path: '/blog',
-      component: Layout,
-      children: [
-        {
-          path: '',
-          component: () => import('@/views/blog/blog'),
-          name: 'blog',
-          meta: { title: 'Blog', icon: 'people', affix: true }
-        }
-      ]
+  {
+    path: '/map',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/map/map'),
+        name: 'map',
+        meta: { title: 'Map', icon: 'guide', affix: true }
+      }
+    ]
+  },
+  {
+    path: '/blog',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/blog/blog'),
+        name: 'blog',
+        meta: { title: 'Blog', icon: 'people', affix: true }
+      }
+    ]
 
-    },
-
+  },
 
   // {
   //   path: '/permission',
