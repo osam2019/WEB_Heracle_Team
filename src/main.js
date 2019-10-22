@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import * as VueGoogleMaps from 'vue2-google-maps'
 
 import Cookies from 'js-cookie'
 
@@ -34,6 +35,19 @@ if (process.env.NODE_ENV === 'production') {
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium' // set element-ui default size
+})
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: process.env.GOOGLE_MAP_TOKEN,
+    libraries: 'places' // This is required if you use the Autocomplete plugin
+  },
+
+  // // If you intend to programmatically custom event listener code
+  // autobindAllEvents: false,
+
+  // // If you want to manually install components, e.g.
+  installComponents: true
 })
 
 // register global utility filters
