@@ -1,24 +1,17 @@
 <template>
   <div class="main-container">
-      <h1> This is for google maps</h1>
+    <FitCenterList />
   </div>
 </template>
 
 <script>
-
+import FitCenterList from '@/components/FitCenterList'
 export default {
+  components: { FitCenterList },
   data() {
-    return {
-
-    }
+    return {}
   },
-  methods: {
-
-  }
+  methods: {}
 }
 </script>
-<style scoped>
 
-
-
-</style>
