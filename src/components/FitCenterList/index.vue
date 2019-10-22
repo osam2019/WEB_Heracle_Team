@@ -40,7 +40,18 @@ export default {
             'https://img.sbs.co.kr/newimg/news/20160829/200974474_700.jpg',
             'http://mansoospa.co.kr/app/dubu_sourcecode/docs/imgs/1506924443_DSC02884.JPG'
           ],
-          reviews: [{}, {}]
+          reviews: [
+            {
+              writer: 'fasdfasd',
+              contents: '헬스장 너무 좋다',
+              grade: 5
+            },
+            {
+              writer: 'fasdfa',
+              contents: '좋지만 기구가 많이 없다.',
+              grade: 4.7
+            }
+          ]
         },
         {
           id: 5,

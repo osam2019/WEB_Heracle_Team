@@ -9,9 +9,11 @@
     <p>{{ focusCenter.address }}</p>
     <el-rate v-model="focusCenter.grade" disabled show-score />
     <div class="reviews">
+      <br>
+      <p>회원 리뷰들</p>
       <ul>
         <li v-for="r of focusCenter.reviews" :key="r.id" class="col-md-6">
-          <CenterReviewItem />
+          <CenterReviewItem :review="r" />
         </li>
       </ul>
     </div>
