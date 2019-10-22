@@ -39,7 +39,7 @@ Vue.use(Element, {
 
 Vue.use(VueGoogleMaps, {
   load: {
-    key: process.env.GOOGLE_MAP_TOKEN,
+    key: process.env.VUE_APP_GOOGLE_MAP_TOKEN,
     libraries: 'places' // This is required if you use the Autocomplete plugin
   },
 
