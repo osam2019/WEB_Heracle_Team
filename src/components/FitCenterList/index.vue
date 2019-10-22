@@ -83,6 +83,7 @@ export default {
   list-style-type: none;
 }
 .fit-center-list {
-  width: 30%;
+  width : 100%;
+  height : 100%;
 }
 </style>
