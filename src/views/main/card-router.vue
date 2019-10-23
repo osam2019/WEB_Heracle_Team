@@ -1,32 +1,19 @@
 <template>
-  <el-row :gutter="15" class="panel-group">
-    <el-col :xs="6" :sm="6" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('newVisitis')">
+  <el-row :gutter="20" class="panel-group">
+    <el-col :xs="8" :sm="8" :lg="8" class="card-panel-col">
+      <div class="card-panel" @click="goLinkto('map')">
         <div class="card-panel-icon-wrapper icon-people">
           <svg-icon icon-class="weightlifting" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            운동기구
+            헬스장 찾기 & 리뷰
           </div>
         </div>
       </div>
     </el-col>
-    <el-col :xs="6" :sm="6" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('messages')">
-        <div class="card-panel-icon-wrapper icon-message">
-          <svg-icon icon-class="verification-of-delivery-list-clipboard-symbol" class-name="card-panel-icon" />
-        </div>
-        <div class="card-panel-description">
-          <div class="card-panel-text">
-            운동 목록
-          </div>
-          <!-- <count-to :start-val="0" :end-val="81212" :duration="3000" class="card-panel-num" /> -->
-        </div>
-      </div>
-    </el-col>
-    <el-col :xs="6" :sm="6" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('purchases')">
+    <el-col :xs="8" :sm="8" :lg="8" class="card-panel-col">
+      <div class="card-panel" @click="goLinkto('protein')">
         <div class="card-panel-icon-wrapper icon-money">
           <svg-icon icon-class="whey" class-name="card-panel-icon" />
         </div>
@@ -38,8 +25,8 @@
         </div>
       </div>
     </el-col>
-    <el-col :xs="6" :sm="6" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('shoppings')">
+    <el-col :xs="8" :sm="8" :lg="8" class="card-panel-col">
+      <div class="card-panel" @click="goLinkto('dashboard')">
         <div class="card-panel-icon-wrapper icon-shopping">
           <svg-icon icon-class="heart" class-name="card-panel-icon" />
         </div>
@@ -64,6 +51,19 @@ export default {
   methods: {
     handleSetLineChartData(type) {
       this.$emit('handleSetLineChartData', type)
+    },
+    goLinkto(link){
+      switch(link){
+        case 'dashboard':
+          this.$router.push('/dashboard/dashboard')
+          break;
+        case 'map':
+          this.$router.push('/map')
+          break;
+        case 'protein':
+          this.$router.push('/protein-rank')
+          break;
+      }
     }
   }
 }
@@ -71,13 +71,9 @@ export default {
 
 <style lang="scss" scoped>
 .panel-group {
-  margin-top: 18px;
-
-  .card-panel-col {
-    margin-bottom: 32px;
-  }
 
   .card-panel {
+    border-radius : 15px;
     margin : 0;
     display : flex;
     align-items: center;

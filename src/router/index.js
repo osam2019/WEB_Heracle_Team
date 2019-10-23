@@ -141,32 +141,6 @@ export const asyncRoutes = [
       }
     ]
   },
-  {
-    path: '/blog',
-    component: Layout,
-    children: [
-      {
-        path: '',
-        component: () => import('@/views/blog/blog'),
-        name: 'blog',
-        meta: { title: 'Blog', icon: 'people', affix: true }
-      }
-    ]
-
-  },
-
-  {
-    path: '/tab',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/tab/index'),
-        name: 'Tab',
-        meta: { title: 'Tab', icon: 'tab' }
-      }
-    ]
-  },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

@@ -38,6 +38,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .ranking-router-container{
+    padding : 20px;
+    border-radius : 15px;
     color: #666;
     background: #fff;
     box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);

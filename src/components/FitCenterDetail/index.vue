@@ -1,9 +1,11 @@
 <template>
   <div>
     <el-carousel height="400px" type="card">
-      <el-carousel-item v-for="item in focusCenter.imgs" :key="item">
-        <img :src="item" style="width: 700px; height: auto;">
-      </el-carousel-item>
+      <span v-if="focusCenter.imgs">
+        <el-carousel-item v-for="item in focusCenter.imgs" :key="item">
+          <img :src="item" style="width: 500px; height: auto;">
+        </el-carousel-item>
+      </span>
     </el-carousel>
     <p>{{ focusCenter.name }}</p>
     <p>{{ focusCenter.address }}</p>
@@ -37,7 +39,9 @@
 
 <script>
 import CenterReviewItem from '@/components/CenterReviewItem'
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
+import { ADD_CENTER_REVIEW_TO_FOCUS } from '@/store/mutations.type.js'
+
 export default {
   components: {
     CenterReviewItem
@@ -49,43 +53,54 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['focusCenter'])
+    ...mapState({
+      focusCenter: state => state.fitCenters.focusCenter
+    })
   },
-  mounted() {},
   methods: {
     isEnable() {
-      const state = this.$store.state.focusFitCenter
-
-      if (state.center.reviews === undefined) {
+      const center = this.focusCenter
+      if (!center.reviews) {
         return true
       }
 
       const username = this.$store.state.user.name
 
-      return (
-        state.center.reviews.find(e => e.writer === username) === undefined
-      )
+      return center.reviews.find(e => e.writer === username) === undefined
     },
 
     onReviewSubmit() {
       const user = this.$store.state.user
 
       if (this.textarea.length < 10) {
-        console.log('Failed')
+        this.$message({
+          message: '본문이 10글자 이상이어야 합니다.',
+          type: 'error',
+          offset: 1000
+        })
         return
       }
 
       if (this.grade < 1) {
-        console.log('Grade Failed')
+        this.$message({
+          message: '평점이 1점 이상이어야 합니다.',
+          type: 'error',
+          offset: 1000
+        })
         return
       }
 
-      this.$store.commit('ADD_CENTER_REVIEW', {
+      this.$store.commit(ADD_CENTER_REVIEW_TO_FOCUS, {
         user,
         text: this.textarea,
         grade: this.grade
       })
-      this.$store.commit('UPDATE_FIT_CENTER', this.focusCenter)
+
+      this.$message({
+        message: '리뷰가 성공적으로 등록되었습니다!',
+        type: 'success',
+        offset: 1000
+      })
     }
   }
 }
