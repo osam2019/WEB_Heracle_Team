@@ -1,9 +1,9 @@
 <template>
   <div class="map-main-container">
     <div class="logo-container">
-      <p>
-        <router-link to="/main">Heracle</router-link>
-      </p>
+      <router-link to="/main">
+        <img :src="logo" class="logo">
+      </router-link>
     </div>
     <div class="body-container">
       <div class="list-container">
@@ -21,6 +21,7 @@
 import FitCenterList from '@/components/FitCenterList'
 import FitCenterDetail from '@/components/FitCenterDetail'
 import GoogleMap from '@/components/GoogleMap'
+import Logo from '@/assets/image/title.png'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -31,7 +32,8 @@ export default {
   data() {
     return {
       center: null,
-      something: false
+      something: false,
+      logo: Logo
     }
   },
   methods: {
@@ -43,6 +45,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.logo {
+  margin: 10px;
+  width: 200px;
+  height: auto;
+}
 .body-container {
   display: flex;
   margin: 0;
