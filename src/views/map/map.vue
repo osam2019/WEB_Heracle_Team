@@ -12,8 +12,8 @@
       <div class="map-container">
         <GoogleMap class="google-map" />
         <el-dialog
-          title="헬스장 상세정보"
           width="50%"
+          top="1em"
           :visible.sync="dialogVisible"
           :before-close="handleClose"
         >
@@ -73,12 +73,12 @@ export default {
     position: relative;
     width: calc(100% - 300px);
 
-    .map-detail {
-      position: relative;
-      z-index: 999999 !important;
-      width: 100%;
-      height: 100%;
+    // dialog css
+    .dialog{
+      margin : 1em 0 0 0 ;
     }
+
+
   }
 }
 </style>

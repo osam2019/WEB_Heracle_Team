@@ -26,7 +26,7 @@ export default {
   props: ['reviews']
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .title {
   color: black;
   font-size: 20px;
@@ -36,5 +36,8 @@ export default {
 }
 .status-txt {
   margin: 30px;
+}
+ul{
+  padding : 0;
 }
 </style>

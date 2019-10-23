@@ -11,8 +11,8 @@
       <ProductReviewAdd :product="product" :on-done="handleClose" :add-review="addReview" />
     </el-dialog>
     <el-row>
-      <el-col :span="10">
-        <img :src="product.img">
+      <el-col class="product-info" :span="10">
+        <img :src="product.img" />
         <p class="brand-name">브랜드: {{ product.brand }}</p>
         <p class="product-name">
           <b>제품명: {{ product.name }}</b>
@@ -20,12 +20,13 @@
         <el-rate v-model="product.rating" disabled show-score />
         <ProductComponent />
       </el-col>
-      <el-col :span="14">
+      <el-col class="product-detail" :span="14">
         <ProductReviewList :reviews="product.reviews ? product.reviews : []" />
         <el-button type="primary" class="review-btn" @click="openAddReviewForm">리뷰 남기기</el-button>
         <!-- <ProductReviewInput /> -->
       </el-col>
     </el-row>
+    <!-- <el-button type="primary" class="review-btn" @click="openAddReviewForm">리뷰 남기기</el-button> -->
   </div>
 </template>
 <script>
@@ -62,7 +63,13 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss" scoped>
+.product-info{
+  text-align : center;
+  img{
+    height : 250px;
+  }
+}
 .brand-name {
 }
 .product-name {
@@ -70,5 +77,6 @@ export default {
 }
 .review_btn {
   width: auto;
+  margin : 0 auto;
 }
 </style>

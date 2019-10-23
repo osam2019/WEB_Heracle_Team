@@ -7,12 +7,14 @@
         </el-carousel-item>
       </span>
     </el-carousel>
-    <p>{{ focusCenter.name }}</p>
-    <p>{{ focusCenter.address }}</p>
-    <el-rate v-model="focusCenter.grade" disabled show-score />
+    <div class="focus-container">
+      <span class="item-name">{{ focusCenter.name }}</span>
+      <span class="item-address">{{ focusCenter.address }}</span>
+      <el-rate v-model="focusCenter.grade" disabled show-score />
+    </div>
+    <hr/>
     <div class="reviews">
-      <br>
-      <p>리뷰</p>
+      <h2>리뷰</h2>
       <div v-if="isEnable()" class="input-box">
         <el-input
           v-model="textarea"
@@ -28,6 +30,7 @@
           <el-button type="primary" round @click="onReviewSubmit">확인</el-button>
         </div>
       </div>
+      <hr/>
       <ul>
         <li v-for="r of focusCenter.reviews" :key="r.id" class="col-md-6">
           <CenterReviewItem :review="r" />
@@ -107,10 +110,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.el-dialog{
+  border-radius : 15px;
+}
 .input {
-  width: 80%;
+  width: 100%;
   height: 100px;
   display: table;
+}
+hr{
+  border : 1px solid #f0f2f5;
 }
 .input-box {
   height: 100%;
@@ -120,7 +129,31 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.reviews-form {
-  display: flex;
+.reviews{
+  ul{
+    margin : 0;
+    padding : 0;
+    list-style-type : none;
+  }
+  .reviews-form {
+    display: flex;
+    align-items : center;
+    justify-content: flex-end;
+  }
 }
+.focus-container{
+  .item-name{
+    display : block;
+    font-size : 35px;
+    color : black;
+    margin-bottom : 10px;
+
+  }
+  .item-address{
+    display : block;
+    color : #999999;
+    margin-bottom : 5px;
+  }
+}
+
 </style>

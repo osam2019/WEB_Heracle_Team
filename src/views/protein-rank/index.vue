@@ -1,12 +1,16 @@
 <template>
   <div class="protein-rank-container">
-    <div class="rank-item-container">
-      <ul>
-        <li v-for="item of items" :key="item.id" class="unit-ul col-md-6">
-          <rank-unit :data="item" />
-        </li>
-      </ul>
-    </div>
+    <h1>보충제</h1>
+      <el-row :gutter="20" class="panel-group">
+        <template v-for="item of items">
+          <el-col :sm="8" :lg="8" class="card-panel-col" :key="item.id">
+            <div class="card-panel-info">
+              <rank-unit :data="item" />
+            </div>
+          </el-col>
+        </template>
+    </el-row>
+    
   </div>
 </template>
 
@@ -81,21 +85,20 @@ export default {
   margin-left: 10px;
 }
 
-// .protein-rank-header {
-//   width: 40%;
-//   margin-left: auto;
-//   margin-right: auto;
-//   margin-top: 30px;
-//   display: flex;
-// }
-.protein-rank-container {
-}
-
-.rank-item-container {
-  width: 40%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+.protein-rank-container{
+  min-height: 100%;
+  margin : 50px;
+  .panel-group{
+    .card-panel-col{
+      height : 800px;
+      .card-panel-info{
+        height : 100%;
+        background : white;
+        border-radius : 15px;
+        padding : 20px;
+      }
+    }
+  }
 }
 
 .unit-ul {
