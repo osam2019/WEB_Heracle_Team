@@ -11,7 +11,7 @@
     <div class="reviews">
       <br>
       <p>리뷰</p>
-      <div class="input-box">
+      <div v-if="isEnable()" class="input-box">
         <el-input
           v-model="textarea"
           class="input"
@@ -22,7 +22,7 @@
           show-word-limit
         />
         <div class="reviews-form">
-          <el-rate />
+          <el-rate v-model="grade" />
           <el-button type="primary" round @click="onReviewSubmit">확인</el-button>
         </div>
       </div>
@@ -44,7 +44,8 @@ export default {
   },
   data() {
     return {
-      textarea: ''
+      textarea: '',
+      grade: 0
     }
   },
   computed: {
@@ -52,8 +53,39 @@ export default {
   },
   mounted() {},
   methods: {
+    isEnable() {
+      const state = this.$store.state.focusFitCenter
+
+      if (state.center.reviews === undefined) {
+        return true
+      }
+
+      const username = this.$store.state.user.name
+
+      return (
+        state.center.reviews.find(e => e.writer === username) === undefined
+      )
+    },
+
     onReviewSubmit() {
-      console.log(this.textarea)
+      const user = this.$store.state.user
+
+      if (this.textarea.length < 10) {
+        console.log('Failed')
+        return
+      }
+
+      if (this.grade < 1) {
+        console.log('Grade Failed')
+        return
+      }
+
+      this.$store.commit('ADD_CENTER_REVIEW', {
+        user,
+        text: this.textarea,
+        grade: this.grade
+      })
+      this.$store.commit('UPDATE_FIT_CENTER', this.focusCenter)
     }
   }
 }

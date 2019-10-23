@@ -31,33 +31,46 @@ const state = {
       name: '코리아헬스',
       address: '경기도 시흥시 신천동',
       grade: 2.4,
-      imgs: []
+      imgs: [],
+      reviews: []
     },
     {
       id: centerId++,
       name: '베스트휘트니스클럽',
       address: '경기도 부천시 소사구',
       grade: 3.7,
-      imgs: []
+      imgs: [],
+      reviews: []
     },
     {
       id: centerId++,
       name: '비타민휘트니스',
       address: '경기도 부천시 소사구',
       grade: 4.7,
-      imgs: []
+      imgs: [],
+      reviews: []
     },
     {
       id: centerId++,
       name: '새마을휘트니스 부천점',
       address: '경기도 부천시 소사구',
       grade: 1.7,
-      imgs: []
+      imgs: [],
+      reviews: []
     }
   ]
 }
 
-const mutations = {}
+const mutations = {
+  UPDATE_FIT_CENTER: (state, center) => {
+    for (let i = 0; i < state.centers.length; i++) {
+      const c = state.centers[i]
+      if (c.id === center.id) {
+        state.centers[i] = center
+      }
+    }
+  }
+}
 
 const actions = {
   FETCH_FIT_CENTERS: context => {
