@@ -35,10 +35,27 @@
 npm install
 ```
 
+## Getting Started
+
+```sh
+// Use 9527 Port
+npm run dev
+```
+
+## Directory Structure
+
 ## Authors
 
 - [@Gyuhwan Kim](https://github.com/gghcode)
 - [@SangRyul Kim](https://github.com/SangRyul)
+
+## Known Issues
+
+Check [Github Issue List](https://github.com/urpx/heracle/issues)
+
+## Change Log
+
+Check [Github Pull Request](https://github.com/urpx/heracle/pulls?q=is%3Apr+is%3Aclosed)
 
 ## 🤝 Contributing
 
@@ -50,7 +67,7 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-This project is [MIT](https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/urpx/heracle/blob/master/LICENSE) licensed.
 
 ---
 
