@@ -24,19 +24,19 @@
       <div class="ic-title">
         <img class="ic" :src="smiling">
         <p class="title">
-          <b>좋았던 점</b>
+          <b>좋았던 점(최소 10자 이상)</b>
         </p>
       </div>
-      <el-input type="textarea" :rows="4" placeholder="좋았던 점을 입력해주세요(최소 10자 이상)" />
+      <el-input v-model="pros" type="textarea" :rows="4" placeholder="좋았던 점을 입력해주세요" />
     </div>
     <div class="unit">
-      <div>
+      <div class="ic-title">
         <img class="ic" :src="crying">
         <p class="title">
-          <b>아쉬운 점</b>
+          <b>아쉬운 점(최소 10자 이상)</b>
         </p>
-        <el-input type="textarea" :rows="4" placeholder="아쉬운 점을 입력해주세요(최소 10자 이상)" />
       </div>
+      <el-input v-model="cons" type="textarea" :rows="4" placeholder="아쉬운 점을 입력해주세요" />
     </div>
     <el-button class type="primary">제출하기</el-button>
   </div>
@@ -49,6 +49,8 @@ export default {
   props: ['product'],
   data() {
     return {
+      pros: '',
+      cons: '',
       rate: 3,
       smiling: Smiling,
       crying: Crying
@@ -61,11 +63,13 @@ export default {
 </script>
 <style>
 .ic-title {
+  height: auto;
   display: flex;
 }
 .ic {
   width: 30px;
   height: 30px;
+  margin-right: 10px;
 }
 .unit {
   margin-bottom: 20px;

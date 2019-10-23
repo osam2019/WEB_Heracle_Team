@@ -1,9 +1,11 @@
 <template>
   <div>
     <el-carousel height="400px" type="card">
-      <el-carousel-item v-for="item in focusCenter.imgs" :key="item">
-        <img :src="item" style="width: 700px; height: auto;">
-      </el-carousel-item>
+      <span v-if="focusCenter.imgs">
+        <el-carousel-item v-for="item in focusCenter.imgs" :key="item">
+          <img :src="item" style="width: 500px; height: auto;">
+        </el-carousel-item>
+      </span>
     </el-carousel>
     <p>{{ focusCenter.name }}</p>
     <p>{{ focusCenter.address }}</p>
@@ -37,7 +39,7 @@
 
 <script>
 import CenterReviewItem from '@/components/CenterReviewItem'
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 export default {
   components: {
     CenterReviewItem
@@ -49,22 +51,20 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['focusCenter'])
+    ...mapState({
+      focusCenter: state => state.fitCenters.focusCenter
+    })
   },
-  mounted() {},
   methods: {
     isEnable() {
-      const state = this.$store.state.focusFitCenter
-
-      if (state.center.reviews === undefined) {
+      const center = this.focusCenter
+      if (!center.reviews) {
         return true
       }
 
       const username = this.$store.state.user.name
 
-      return (
-        state.center.reviews.find(e => e.writer === username) === undefined
-      )
+      return center.reviews.find(e => e.writer === username) === undefined
     },
 
     onReviewSubmit() {

@@ -7,11 +7,18 @@
     </div>
     <div class="body-container">
       <div class="list-container">
-        <FitCenterList @onFocusCenter="onFocusCenter" />
+        <FitCenterList :on-item-clicked="onItemClicked" />
       </div>
       <div class="map-container">
-        <GoogleMap v-show="!focusCenter" class="google-map" />
-        <FitCenterDetail v-if="focusCenter" class="map-detail" />
+        <GoogleMap class="google-map" />
+        <el-dialog
+          title="헬스장 상세정보"
+          width="50%"
+          :visible.sync="dialogVisible"
+          :before-close="handleClose"
+        >
+          <FitCenterDetail class="map-detail" />
+        </el-dialog>
       </div>
     </div>
   </div>
@@ -22,24 +29,23 @@ import FitCenterList from '@/components/FitCenterList'
 import FitCenterDetail from '@/components/FitCenterDetail'
 import GoogleMap from '@/components/GoogleMap'
 import Logo from '@/assets/image/title.png'
-import { mapGetters } from 'vuex'
 
 export default {
   components: { FitCenterList, GoogleMap, FitCenterDetail },
-  computed: {
-    ...mapGetters(['focusCenter'])
-  },
   data() {
     return {
+      dialogVisible: false,
       center: null,
       something: false,
       logo: Logo
     }
   },
   methods: {
-    onFocusCenter: function(c) {
-      this.center = c
-      this.something = !this.something
+    handleClose(done) {
+      done()
+    },
+    onItemClicked() {
+      this.dialogVisible = true
     }
   }
 }
