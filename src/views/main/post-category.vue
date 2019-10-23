@@ -2,7 +2,7 @@
   <div class="post-category-container">
 		<div class="category-header">포스트 카테고리</div>
 		 <div class="category-body">
-				<template v-for="data in mockCategory" >
+			<template v-for="data in mockCategory" >
 					<el-button class = "chips" type="primary" plain round>{{data}}</el-button>
   			</template>
 		 </div>
