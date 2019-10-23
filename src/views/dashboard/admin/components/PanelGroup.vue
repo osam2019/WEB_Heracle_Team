@@ -39,7 +39,7 @@
       <div class="card-panel-info">
         <h2>ABSI(A Body Shape Index)</h2>
         <div class="card-panel-body">
-          <span class="num">1.07</span>
+          <span class="num">0.074</span>
           <img class="icon" :src="badIcon">
         </div>
       </div>
@@ -167,6 +167,7 @@ export default {
   }
 
   .card-panel {
+    border-radius : 15px;
     padding : 20px;
     height: 400px;
     font-size: 12px;
@@ -180,15 +181,16 @@ export default {
   }
   
   .card-panel-info {
-  padding : 20px;
-  height: 200px;
-  font-size: 12px;
-  position: relative;
-  overflow: hidden;
-  color: #666;
-  background: #fff;
-  box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
-  border-color: rgba(0, 0, 0, .05);
+    border-radius : 15px;
+    padding : 20px;
+    height: 200px;
+    font-size: 12px;
+    position: relative;
+    overflow: hidden;
+    color: #666;
+    background: #fff;
+    box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
+    border-color: rgba(0, 0, 0, .05);
 
   .card-panel-body{
     color : #000000;

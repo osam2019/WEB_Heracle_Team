@@ -16,9 +16,6 @@
         <h2>운동 리스트</h2>
         <todo-list />
       </el-col>
-      <!-- <el-col :lg="{span: 6}" :xl="{span: 6}" style="margin-bottom:30px;">
-        <box-card />
-      </el-col> -->
     </el-row>
   </div>
 </template>

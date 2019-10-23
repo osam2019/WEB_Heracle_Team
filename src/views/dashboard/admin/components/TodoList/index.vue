@@ -123,4 +123,7 @@ export default {
 
 <style lang="scss">
   @import './index.scss';
+  .todoapp{
+    border-radius : 15px;
+  }
 </style>

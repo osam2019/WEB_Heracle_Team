@@ -1,10 +1,10 @@
 <template>
   <div class="map-main-container">
-    <div class="logo-container">
+    <!-- <div class="logo-container">
       <router-link to="/main">
         <img :src="logo" class="logo">
       </router-link>
-    </div>
+    </div> -->
     <div class="body-container">
       <div class="list-container">
         <FitCenterList :on-item-clicked="onItemClicked" />
@@ -61,17 +61,16 @@ export default {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: calc(100vh - 84px);
+  min-height: 100vh;
 
   .list-container {
-    border: 1px solid red;
-    width: 300px;
+    border-right : 2px solid #b4c3d9;
+    width: 350px;
     min-height: 100%;
   }
   .map-container {
     min-height: 100%;
     position: relative;
-    border: 1px solid blue;
     width: calc(100% - 300px);
 
     .map-detail {

@@ -83,6 +83,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.el-table{
+  border-radius : 15px;
+}
 .row-list{
   &:hover{
     cursor : pointer;

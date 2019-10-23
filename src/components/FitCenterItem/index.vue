@@ -1,7 +1,7 @@
 <template>
   <div class="item">
-    <p>{{ center.name }}</p>
-    <p>{{ center.address }}</p>
+    <span class="item-name">{{ center.name }}</span>
+    <span class="item-address">{{ center.address }}</span>
     <el-rate v-model="center.grade" disabled show-score />
   </div>
 </template>
@@ -10,9 +10,25 @@ export default {
   props: ['center']
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .item {
-  margin: 10px;
-  border: 1px solid black;
+  background : white;
+  border-bottom : 3px solid #f0f2f5;
+  padding : 15px;
+  &:hover{
+    cursor : pointer;
+  }
+  
+  span{
+    display : block;
+  }
+  .item-name{
+    font-size : 19px;
+    color : black;
+
+  }
+  .item-address{
+    color : #999999;
+  }
 }
 </style>

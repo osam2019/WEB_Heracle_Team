@@ -2,7 +2,7 @@
   <div class="fit-center-list">
     <div class="input">
       <form>
-        <gmap-autocomplete placeholder="Address" @place_changed="setPlace" />
+        <gmap-autocomplete placeholder="주소 검색" @place_changed="setPlace" />
       </form>
     </div>
     <div class="container">
@@ -50,12 +50,31 @@ export default {
   }
 }
 </script>
-<style>
-.fit-list {
-  list-style-type: none;
-}
+<style lang="scss" scoped>
+
 .fit-center-list {
   width: 100%;
   height: 100%;
+  
+  .input{
+    width : 100%;
+    input{
+      border-radius : 15px;
+      width : 100%;
+      height : 60px;
+      border : 10px solid #f0f2f5;
+      // box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      padding : 10px;
+    }
+  }
+
+  .fit-list {
+    list-style-type: none;
+    margin : 0;
+    padding : 0;
+  }
+
 }
+
+
 </style>
