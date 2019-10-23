@@ -1,14 +1,16 @@
 <template>
   <el-row class="item-container">
-    <el-col :span="3">
+    <el-col :span="8">
       <img :src="medalIcons[idx]">
     </el-col>
-    <el-col :span="3">
+    <el-col :span="8">
       <img class="product-img" :src="product.img">
     </el-col>
-    <el-col :span="3" class="product-info-container">
+    <el-col :span="8" class="product-info-container">
       <p>{{ product.brand }}</p>
-      <p>{{ product.name }}</p>
+      <p class="product-name">
+        <b>{{ product.name }}</b>
+      </p>
     </el-col>
   </el-row>
 </template>
@@ -27,6 +29,9 @@ export default {
 }
 </script>
 <style>
+.product-name {
+  color: black;
+}
 .item-container {
 }
 .product-img {
