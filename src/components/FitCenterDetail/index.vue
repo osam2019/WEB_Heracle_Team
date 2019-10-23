@@ -11,14 +11,20 @@
     <div class="reviews">
       <br>
       <p>리뷰</p>
-      <div>
-        <form>
-          <input class="input" placeholder="리뷰를 작성하세요...">'
-          <div class="reviews-form">
-            <el-rate />
-            <button @click="onReviewSubmit">확인</button>
-          </div>
-        </form>
+      <div v-if="isEnable()" class="input-box">
+        <el-input
+          v-model="textarea"
+          class="input"
+          type="textarea"
+          :autosize="{ minRows: 4}"
+          placeholder="리뷰를 작성하세요..."
+          maxlength="300"
+          show-word-limit
+        />
+        <div class="reviews-form">
+          <el-rate v-model="grade" />
+          <el-button type="primary" round @click="onReviewSubmit">확인</el-button>
+        </div>
       </div>
       <ul>
         <li v-for="r of focusCenter.reviews" :key="r.id" class="col-md-6">
@@ -36,13 +42,50 @@ export default {
   components: {
     CenterReviewItem
   },
+  data() {
+    return {
+      textarea: '',
+      grade: 0
+    }
+  },
   computed: {
     ...mapGetters(['focusCenter'])
   },
   mounted() {},
   methods: {
+    isEnable() {
+      const state = this.$store.state.focusFitCenter
+
+      if (state.center.reviews === undefined) {
+        return true
+      }
+
+      const username = this.$store.state.user.name
+
+      return (
+        state.center.reviews.find(e => e.writer === username) === undefined
+      )
+    },
+
     onReviewSubmit() {
-      console.log('fasdf')
+      const user = this.$store.state.user
+
+      if (this.textarea.length < 10) {
+        console.log('Failed')
+        return
+      }
+
+      if (this.grade < 1) {
+        console.log('Grade Failed')
+        return
+      }
+
+      this.$store.commit('ADD_CENTER_REVIEW', {
+        user,
+        text: this.textarea,
+        grade: this.grade
+      })
+      this.$store.commit('UPDATE_FIT_CENTER', this.focusCenter)
     }
   }
 }
@@ -52,6 +95,10 @@ export default {
 .input {
   width: 80%;
   height: 100px;
+  display: table;
+}
+.input-box {
+  height: 100%;
 }
 .el-carousel__item {
   display: flex;
