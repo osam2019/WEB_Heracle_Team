@@ -171,14 +171,14 @@ export default {
 
 <style lang="scss" scoped>
 .protein-rank-header {
-  width: 60%;
+  width: 40%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
 }
 
 .protein-rank-container {
-  width: 60%;
+  width: 40%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
