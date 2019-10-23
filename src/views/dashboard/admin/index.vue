@@ -1,9 +1,13 @@
 <template>
   <div class="dashboard-editor-container">
+    <div class="health-care-dashboard">
+      <h1>헬스 케어 데시보드</h1>
+      <el-button class="record" type="primary">이번 주 기록하기</el-button>
 
-    <panel-group @handleSetLineChartData="handleSetLineChartData" />
+    </div>
+    <panel-group />
 
-    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+    <!-- <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
       <line-chart :chart-data="lineChartData" />
     </el-row>
 
@@ -35,7 +39,7 @@
       <el-col :xs="{span: 24}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="margin-bottom:30px;">
         <box-card />
       </el-col>
-    </el-row>
+    </el-row> -->
   </div>
 </template>
 
@@ -97,9 +101,20 @@ export default {
 
 <style lang="scss" scoped>
 .dashboard-editor-container {
-  padding: 32px;
+  margin : 50px;
   background-color: rgb(240, 242, 245);
   position: relative;
+
+  .health-care-dashboard{
+    display : flex;
+    justify-content: space-between;
+
+    .record{
+      font-weight : bold;
+      font-size : 16px;
+    }
+
+  }
 
   .github-corner {
     position: absolute;

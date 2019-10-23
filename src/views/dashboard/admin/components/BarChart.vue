@@ -7,11 +7,14 @@ import echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from './mixins/resize'
 
-const animationDuration = 6000
+const animationDuration = 1000
 
 export default {
   mixins: [resize],
   props: {
+    graphData : {
+      type : Object,
+    },
     className: {
       type: String,
       default: 'chart'
@@ -27,9 +30,10 @@ export default {
   },
   data() {
     return {
-      chart: null
+      chart: null,
     }
   },
+  
   mounted() {
     this.$nextTick(() => {
       this.initChart()
@@ -45,6 +49,8 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
+      let chartOption = this.graphData
+      console.log(this.graphData)
 
       this.chart.setOption({
         tooltip: {
@@ -60,9 +66,11 @@ export default {
           bottom: '3%',
           containLabel: true
         },
+        color : [chartOption.color]
+        ,
         xAxis: [{
           type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: chartOption.xasis,
           axisTick: {
             alignWithLabel: true
           }
@@ -74,27 +82,13 @@ export default {
           }
         }],
         series: [{
-          name: 'pageA',
+          name: chartOption.name,
           type: 'bar',
           stack: 'vistors',
           barWidth: '60%',
-          data: [79, 52, 200, 334, 390, 330, 220],
+          data: chartOption.data,
           animationDuration
-        }, {
-          name: 'pageB',
-          type: 'bar',
-          stack: 'vistors',
-          barWidth: '60%',
-          data: [80, 52, 200, 334, 390, 330, 220],
-          animationDuration
-        }, {
-          name: 'pageC',
-          type: 'bar',
-          stack: 'vistors',
-          barWidth: '60%',
-          data: [30, 52, 200, 334, 390, 330, 220],
-          animationDuration
-        }]
+        },]
       })
     }
   }
