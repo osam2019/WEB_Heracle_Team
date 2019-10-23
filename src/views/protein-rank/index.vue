@@ -1,11 +1,6 @@
 <template>
-  <div>
-    <div class="protein-rank-header">
-      <!-- <img :src="logo" /> -->
-      <el-input placeholder="상품을 검색하세요..." prefix-icon="el-icon-search" />
-      <el-button class="search-submit-btn" type="primary">검색</el-button>
-    </div>
-    <div class="protein-rank-container">
+  <div class="protein-rank-container">
+    <div class="rank-item-container">
       <ul>
         <li v-for="item of items" :key="item.id" class="unit-ul col-md-6">
           <rank-unit :data="item" />
@@ -210,15 +205,18 @@ export default {
   margin-left: 10px;
 }
 
-.protein-rank-header {
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  display: flex;
+// .protein-rank-header {
+//   width: 40%;
+//   margin-left: auto;
+//   margin-right: auto;
+//   margin-top: 30px;
+//   display: flex;
+// }
+.protein-rank-container{
+  
 }
 
-.protein-rank-container {
+.rank-item-container {
   width: 40%;
   text-align: center;
   margin-left: auto;
