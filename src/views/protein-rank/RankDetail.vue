@@ -6,8 +6,9 @@
       :visible.sync="dialogVisible"
       width="60%"
       :before-close="handleClose"
+      :modal-append-to-body="false"
     >
-      <ProductReviewAdd :product="product" />
+      <ProductReviewAdd :product="product" :on-done="handleClose" />
     </el-dialog>
     <el-row>
       <el-col :span="10">
