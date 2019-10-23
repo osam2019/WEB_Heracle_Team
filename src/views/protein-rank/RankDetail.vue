@@ -8,7 +8,7 @@
       :before-close="handleClose"
       :modal-append-to-body="false"
     >
-      <ProductReviewAdd :product="product" :on-done="handleClose" />
+      <ProductReviewAdd :product="product" :on-done="handleClose" :add-review="addReview" />
     </el-dialog>
     <el-row>
       <el-col :span="10">
@@ -54,6 +54,10 @@ export default {
     },
     openAddReviewForm() {
       this.dialogVisible = true
+    },
+    addReview(review) {
+      console.log(review)
+      this.product.reviews.push(review)
     }
   }
 }
