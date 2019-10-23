@@ -35,7 +35,7 @@
 npm install
 ```
 
-## Run by development mode
+## Getting Started
 
 ```sh
 // Use 9527 Port
@@ -57,7 +57,7 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-This project is [MIT](https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/urpx/heracle/blob/master/LICENSE) licensed.
 
 ---
 
