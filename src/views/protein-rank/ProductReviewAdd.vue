@@ -38,7 +38,7 @@
       </div>
       <el-input v-model="cons" type="textarea" :rows="4" placeholder="아쉬운 점을 입력해주세요" />
     </div>
-    <el-button class type="primary">제출하기</el-button>
+    <el-button class type="primary" @click="onSubmit">제출하기</el-button>
   </div>
 </template>
 <script>
@@ -46,7 +46,7 @@ import Crying from '@/assets/image/crying.png'
 import Smiling from '@/assets/image/smiling.png'
 
 export default {
-  props: ['product'],
+  props: ['product', 'onDone'],
   data() {
     return {
       pros: '',
@@ -58,6 +58,35 @@ export default {
   },
   mounted() {
     console.log('fasdf')
+  },
+  methods: {
+    onSubmit() {
+      if (this.pros.length < 10) {
+        this.$message({
+          message: '좋았던 점이 10글자 이상이어야 합니다.',
+          type: 'error',
+          offset: 1000
+        })
+        return
+      }
+
+      if (this.cons.length < 10) {
+        this.$message({
+          message: '아쉬운 점이 10글자 이상이어야 합니다.',
+          type: 'error',
+          offset: 1000
+        })
+        return
+      }
+
+      this.$message({
+        message: '리뷰가 성공적으로 등록되었습니다!',
+        type: 'success',
+        offset: 1000
+      })
+
+      this.onDone()
+    }
   }
 }
 </script>
