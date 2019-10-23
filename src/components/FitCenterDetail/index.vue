@@ -71,12 +71,18 @@ export default {
       const user = this.$store.state.user
 
       if (this.textarea.length < 10) {
-        console.log('Failed')
+        this.$message({
+          message: '본문이 10글자 이상이어야 합니다.',
+          type: 'error'
+        })
         return
       }
 
       if (this.grade < 1) {
-        console.log('Grade Failed')
+        this.$message({
+          message: '평점이 1점 이상이어야 합니다.',
+          type: 'error'
+        })
         return
       }
 
