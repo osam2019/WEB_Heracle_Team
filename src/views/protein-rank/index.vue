@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="protein-rank-header">
+      <!-- <img :src="logo" /> -->
       <el-input placeholder="상품을 검색하세요..." prefix-icon="el-icon-search" />
+      <el-button class="search-submit-btn" type="primary">검색</el-button>
     </div>
     <div class="protein-rank-container">
       <ul>
@@ -16,6 +18,7 @@
 <script>
 import RankUnit from './RankUnit.vue'
 import { fetchList } from '@/api/article'
+import Logo from '@/assets/image/title.png'
 
 export default {
   name: 'InlineEditTable',
@@ -32,6 +35,7 @@ export default {
   },
   data() {
     return {
+      logo: Logo,
       items: [
         {
           title: '지방이 없는 단백질 보충체 랭킹',
@@ -43,7 +47,39 @@ export default {
                 'https://static.wixstatic.com/media/9f158a_556ada69b99a4a24897491f740c47bd8.jpg/v1/fill/w_106,h_182,al_c,lg_1,q_80/9f158a_556ada69b99a4a24897491f740c47bd8.webp',
               name: '단백질 보충제',
               brand: '마이오틴',
-              rating: 4.5
+              rating: 4.5,
+              reviews: [
+                {
+                  writer_name: '테스트 사용자',
+                  writer_age: 20,
+                  rating: 4.0,
+                  pros: '너무 좋다.'
+                },
+                {
+                  writer_name: '테스트 사용자2',
+                  writer_age: 25,
+                  rating: 2.8,
+                  pros: '빨리 빨리 껍데기만 하자'
+                },
+                {
+                  writer_name: '테스트 사용자3',
+                  writer_age: 30,
+                  rating: 3.5,
+                  pros: '쓸만 하네요'
+                },
+                {
+                  writer_name: '테스트 사용자4',
+                  writer_age: 27,
+                  rating: 1.8,
+                  pros: '맛이 없어요'
+                },
+                {
+                  writer_name: '테스트 사용자5',
+                  writer_age: 24,
+                  rating: 4.5,
+                  pros: '맛있어요.'
+                }
+              ]
             },
             {
               id: 2,
@@ -170,11 +206,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.search-submit-btn {
+  margin-left: 10px;
+}
+
 .protein-rank-header {
   width: 40%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
+  display: flex;
 }
 
 .protein-rank-container {
