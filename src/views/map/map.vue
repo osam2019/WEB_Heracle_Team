@@ -1,11 +1,18 @@
 <template>
   <div class="map-main-container">
-    <div class="list-container">
-      <FitCenterList @onFocusCenter="onFocusCenter" />
+    <div class="logo-container">
+      <p>
+        <router-link to="/main">Heracle</router-link>
+      </p>
     </div>
-    <div class="map-container">
-      <GoogleMap v-show="!focusCenter" class="google-map" />
-      <FitCenterDetail v-if="focusCenter" class="map-detail" />
+    <div class="body-container">
+      <div class="list-container">
+        <FitCenterList @onFocusCenter="onFocusCenter" />
+      </div>
+      <div class="map-container">
+        <GoogleMap v-show="!focusCenter" class="google-map" />
+        <FitCenterDetail v-if="focusCenter" class="map-detail" />
+      </div>
     </div>
   </div>
 </template>
@@ -36,7 +43,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.map-main-container {
+.body-container {
   display: flex;
   margin: 0;
   padding: 0;

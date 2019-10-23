@@ -1,96 +1,25 @@
 <template>
-  <div class="protein-rank-container">
-    <h1> 단백질 보충제 순위 및 구매 </h1>
-    <el-table v-loading="listLoading" :data="listMockUp" border fit highlight-current-row style="width: 100%">
-      <el-table-column align="center" label="ID" width="80">
-        <template slot-scope="scope">
-          <span>{{ scope.row.id }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column width="180px" align="center" >
-        <template slot-scope="scope">
-          <img :src="scope.row.img"></img>
-        </template>
-      </el-table-column>
-
-      <el-table-column width="180px" align="center" label="제품">
-        <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
-          <el-button
-              class="buy-btn"
-              size="large"
-              type="primary"
-              @click="cancelEdit(row)"
-            >
-						구매
-          </el-button>
-        </template>
-      </el-table-column>
-
-      <el-table-column min-width="400px"  label="후기">
-        <template slot-scope="scope">
-          <span>{{ scope.row.rating }}</span>
-					<!-- 실제 rating프로그램으로 대체 할것 -->
-					<span>{{scope.row.review}} </span>
-        </template>
-      </el-table-column>
-
-      <!-- <el-table-column width="100px" label="Importance">
-        <template slot-scope="scope">
-          <svg-icon v-for="n in +scope.row.importance" :key="n" icon-class="star" class="meta-item__icon" />
-        </template>
-      </el-table-column> -->
-
-
-      <!-- <el-table-column min-width="300px" label="Title">
-        <template slot-scope="{row}">
-          <template v-if="row.edit">
-            <el-input v-model="row.title" class="edit-input" size="small" />
-            <el-button
-              class="cancel-btn"
-              size="small"
-              icon="el-icon-refresh"
-              type="warning"
-              @click="cancelEdit(row)"
-            >
-              cancel
-            </el-button>
-          </template>
-          <span v-else>{{ row.title }}</span>
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" label="Actions" width="120">
-        <template slot-scope="{row}">
-          <el-button
-            v-if="row.edit"
-            type="success"
-            size="small"
-            icon="el-icon-circle-check-outline"
-            @click="confirmEdit(row)"
-          >
-            Ok
-          </el-button>
-          <el-button
-            v-else
-            type="primary"
-            size="small"
-            icon="el-icon-edit"
-            @click="row.edit=!row.edit"
-          >
-            Edit
-          </el-button>
-        </template>
-      </el-table-column> --> -->
-    </el-table>
+  <div>
+    <div class="protein-rank-header">
+      <el-input placeholder="상품을 검색하세요..." prefix-icon="el-icon-search" />
+    </div>
+    <div class="protein-rank-container">
+      <ul>
+        <li v-for="item of items" :key="item.id" class="unit-ul col-md-6">
+          <rank-unit :data="item" />
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
+import RankUnit from './RankUnit.vue'
 import { fetchList } from '@/api/article'
 
 export default {
   name: 'InlineEditTable',
+  components: { RankUnit },
   filters: {
     statusFilter(status) {
       const statusMap = {
@@ -103,35 +32,100 @@ export default {
   },
   data() {
     return {
-			list: null,
-			listMockUp:[
-				{
-					id : 1,
-					img : "https://static.wixstatic.com/media/9f158a_556ada69b99a4a24897491f740c47bd8.jpg/v1/fill/w_106,h_182,al_c,lg_1,q_80/9f158a_556ada69b99a4a24897491f740c47bd8.webp",
-					name : "마이오틴",
-					rating : 4.5,
-					review : "As the best protein powder, Myotein has been known for its ability to Increase lean muscle mass and speed recovery. Myotein features 6 different blends of protein and is loaded with 26g of pure protein. Try the #1 choice in taste with the delicious chef-approved XPI Myotein.",
-					buyLink : "http://browse.gmarket.co.kr/search?keyword=%EB%A7%88%EC%9D%B4%EC%98%A4%ED%8B%B4"
-				},
-				{
-					id : 1,
-					img : "https://static.wixstatic.com/media/9f158a_556ada69b99a4a24897491f740c47bd8.jpg/v1/fill/w_106,h_182,al_c,lg_1,q_80/9f158a_556ada69b99a4a24897491f740c47bd8.webp",
-					name : "마이오틴",
-					rating : 4.5,
-					review : "As the best protein powder, Myotein has been known for its ability to Increase lean muscle mass and speed recovery. Myotein features 6 different blends of protein and is loaded with 26g of pure protein. Try the #1 choice in taste with the delicious chef-approved XPI Myotein.",
-					buyLink : "http://browse.gmarket.co.kr/search?keyword=%EB%A7%88%EC%9D%B4%EC%98%A4%ED%8B%B4"
-				},
-				{
-					id : 1,
-					img : "https://static.wixstatic.com/media/9f158a_556ada69b99a4a24897491f740c47bd8.jpg/v1/fill/w_106,h_182,al_c,lg_1,q_80/9f158a_556ada69b99a4a24897491f740c47bd8.webp",
-					name : "마이오틴",
-					rating : 4.5,
-					review : "As the best protein powder, Myotein has been known for its ability to Increase lean muscle mass and speed recovery. Myotein features 6 different blends of protein and is loaded with 26g of pure protein. Try the #1 choice in taste with the delicious chef-approved XPI Myotein.",
-					buyLink : "http://browse.gmarket.co.kr/search?keyword=%EB%A7%88%EC%9D%B4%EC%98%A4%ED%8B%B4"
-				},
-
-
-			],
+      items: [
+        {
+          title: '지방이 없는 단백질 보충체 랭킹',
+          subtitle: '보충제 랭킹',
+          ranker: [
+            {
+              id: 1,
+              img:
+                'https://static.wixstatic.com/media/9f158a_556ada69b99a4a24897491f740c47bd8.jpg/v1/fill/w_106,h_182,al_c,lg_1,q_80/9f158a_556ada69b99a4a24897491f740c47bd8.webp',
+              name: '단백질 보충제',
+              brand: '마이오틴',
+              rating: 4.5
+            },
+            {
+              id: 2,
+              name: '임팩트 웨이 프로틴',
+              brand: '마이 프로틴',
+              img:
+                'https://s1.thcdn.com/productimg/300/300/10530943-4414674035314392.jpg'
+            },
+            {
+              id: 3,
+              name: '퍼펙트 파워쉐이크',
+              brand: '칼로바이',
+              img:
+                'https://thumbnail14.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/8cc0/e45f49b996d9559f106965966b6e946fa8624ae6f6a01e1bc356f66b7dcf.jpg'
+            }
+          ]
+        },
+        {
+          title: '맛 대신 건강을 위한 보충제 랭킹',
+          subtitle: '보충제 랭킹',
+          ranker: [
+            {
+              id: 1,
+              img:
+                'https://static.wixstatic.com/media/9f158a_556ada69b99a4a24897491f740c47bd8.jpg/v1/fill/w_106,h_182,al_c,lg_1,q_80/9f158a_556ada69b99a4a24897491f740c47bd8.webp',
+              name: '단백질 보충제',
+              brand: '마이오틴',
+              rating: 4.5
+            },
+            {
+              id: 2,
+              name: '임팩트 웨이 프로틴',
+              brand: '마이 프로틴',
+              img:
+                'https://s1.thcdn.com/productimg/300/300/10530943-4414674035314392.jpg'
+            },
+            {
+              id: 3,
+              name: '퍼펙트 파워쉐이크',
+              brand: '칼로바이',
+              img:
+                'https://thumbnail14.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/8cc0/e45f49b996d9559f106965966b6e946fa8624ae6f6a01e1bc356f66b7dcf.jpg'
+            }
+          ]
+        }
+      ],
+      list: null,
+      listMockUp: [
+        {
+          id: 1,
+          img:
+            'https://static.wixstatic.com/media/9f158a_556ada69b99a4a24897491f740c47bd8.jpg/v1/fill/w_106,h_182,al_c,lg_1,q_80/9f158a_556ada69b99a4a24897491f740c47bd8.webp',
+          name: '마이오틴',
+          rating: 4.5,
+          review:
+            'As the best protein powder, Myotein has been known for its ability to Increase lean muscle mass and speed recovery. Myotein features 6 different blends of protein and is loaded with 26g of pure protein. Try the #1 choice in taste with the delicious chef-approved XPI Myotein.',
+          buyLink:
+            'http://browse.gmarket.co.kr/search?keyword=%EB%A7%88%EC%9D%B4%EC%98%A4%ED%8B%B4'
+        },
+        {
+          id: 1,
+          img:
+            'https://static.wixstatic.com/media/9f158a_556ada69b99a4a24897491f740c47bd8.jpg/v1/fill/w_106,h_182,al_c,lg_1,q_80/9f158a_556ada69b99a4a24897491f740c47bd8.webp',
+          name: '마이오틴',
+          rating: 4.5,
+          review:
+            'As the best protein powder, Myotein has been known for its ability to Increase lean muscle mass and speed recovery. Myotein features 6 different blends of protein and is loaded with 26g of pure protein. Try the #1 choice in taste with the delicious chef-approved XPI Myotein.',
+          buyLink:
+            'http://browse.gmarket.co.kr/search?keyword=%EB%A7%88%EC%9D%B4%EC%98%A4%ED%8B%B4'
+        },
+        {
+          id: 1,
+          img:
+            'https://static.wixstatic.com/media/9f158a_556ada69b99a4a24897491f740c47bd8.jpg/v1/fill/w_106,h_182,al_c,lg_1,q_80/9f158a_556ada69b99a4a24897491f740c47bd8.webp',
+          name: '마이오틴',
+          rating: 4.5,
+          review:
+            'As the best protein powder, Myotein has been known for its ability to Increase lean muscle mass and speed recovery. Myotein features 6 different blends of protein and is loaded with 26g of pure protein. Try the #1 choice in taste with the delicious chef-approved XPI Myotein.',
+          buyLink:
+            'http://browse.gmarket.co.kr/search?keyword=%EB%A7%88%EC%9D%B4%EC%98%A4%ED%8B%B4'
+        }
+      ],
       listLoading: true,
       listQuery: {
         page: 1,
@@ -151,8 +145,8 @@ export default {
         this.$set(v, 'edit', false) // https://vuejs.org/v2/guide/reactivity.html
         v.originalTitle = v.title //  will be used when user click the cancel botton
         return v
-			})
-			console.log(data);
+      })
+      console.log(data)
       this.listLoading = false
     },
     cancelEdit(row) {
@@ -176,8 +170,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.protein-rank-container{
-	margin : 30px 50px;
+.protein-rank-header {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.protein-rank-container {
+  width: 60%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.unit-ul {
+  list-style-type: none;
 }
 
 .edit-input {
@@ -185,7 +193,7 @@ export default {
 }
 .buy-btn {
   position: absolute;
-  left:154px;
+  left: 154px;
   bottom: 20px;
 }
 </style>
