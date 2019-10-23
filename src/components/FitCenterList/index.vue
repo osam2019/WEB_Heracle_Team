@@ -21,18 +21,25 @@
 </template>
 <script>
 import { mapState } from 'vuex'
+import { FETCH_CENTERS } from '@/store/actions.type'
+import { SET_FOCUS_CENTER } from '@/store/mutations.type'
 import FitCenterItem from '@/components/FitCenterItem'
 
 export default {
   components: {
     FitCenterItem
   },
+  props: ['onItemClicked'],
   computed: mapState({
     centers: state => state.fitCenters.centers
   }),
+  mounted() {
+    this.$store.dispatch(FETCH_CENTERS)
+  },
   methods: {
     onCenterItemClicked(item) {
-      this.$store.commit('SET_FOCUS_CENTER', item)
+      this.$store.commit(SET_FOCUS_CENTER, item)
+      this.onItemClicked()
     },
     setPlace(place) {
       this.$store.commit('SET_PLACE', {

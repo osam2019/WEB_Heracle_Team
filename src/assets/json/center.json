@@ -1,0 +1,64 @@
+[
+  {
+    "id": 0,
+    "name": "RH휘트니스",
+    "address": "서울시 용산구",
+    "grade": 5,
+    "reviews": []
+  },
+  {
+    "id": 1,
+    "name": "한창헬스크럽",
+    "address": "경기도 시흥시 은행동",
+    "grade": 4.5,
+    "imgs": [
+      "https://www.lottehotel.com/content/dam/lotte-hotel/lotte/samara/facilities/fitness-spa/gym/181126-1-2000-fac-LTSM.jpg.thumb.1440.1440.jpg",
+      "https://img.sbs.co.kr/newimg/news/20160829/200974474_700.jpg",
+      "http://mansoospa.co.kr/app/dubu_sourcecode/docs/imgs/1506924443_DSC02884.JPG"
+    ],
+    "reviews": [
+      {
+        "writer": "류벨류",
+        "contents": "헬스장 너무 좋다",
+        "grade": 5
+      },
+      {
+        "writer": "디벨럽",
+        "contents": "좋지만 기구가 많이 없다.",
+        "grade": 4
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "코리아헬스",
+    "address": "경기도 시흥시 신천동",
+    "grade": 2.4,
+    "imgs": [],
+    "reviews": []
+  },
+  {
+    "id": 3,
+    "name": "베스트휘트니스클럽",
+    "address": "경기도 부천시 소사구",
+    "grade": 3.7,
+    "imgs": [],
+    "reviews": []
+  },
+  {
+    "id": 4,
+    "name": "비타민휘트니스",
+    "address": "경기도 부천시 소사구",
+    "grade": 4.7,
+    "imgs": [],
+    "reviews": []
+  },
+  {
+    "id": 5,
+    "name": "새마을휘트니스 부천점",
+    "address": "경기도 부천시 소사구",
+    "grade": 1.7,
+    "imgs": [],
+    "reviews": []
+  }
+]
