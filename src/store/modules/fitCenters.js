@@ -1,4 +1,4 @@
-import { FETCH_CENTERS } from '@/store/actions.type'
+import { FETCH_CENTERS, SEARCH_CENTERS } from '@/store/actions.type'
 import {
   SET_FOCUS_CENTER,
   ADD_CENTER_REVIEW_TO_FOCUS
@@ -15,6 +15,28 @@ const actions = {
     return new Promise(resolve => {
       const centers = context.state.centers
       resolve(centers)
+    })
+  },
+  [SEARCH_CENTERS](context, cur) {
+    return new Promise(resolve => {
+      const centers = context.state.centers
+      const dist = a => {
+        const diffLat = cur.lat - a.lat
+        const diffLng = cur.lng - a.lng
+
+        const res = diffLat * diffLat + (diffLng + diffLng)
+        return res
+      }
+
+      centers.sort((a, b) => {
+        const distA = dist(a)
+        const distB = dist(b)
+
+        return distA > distB
+      })
+      centers.forEach(e => console.log(e.address, dist(e)))
+      // console.log(result);
+      resolve(centers.slice(0, 10))
     })
   }
 }

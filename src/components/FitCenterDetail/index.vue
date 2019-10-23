@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       textarea: '',
-      grade: 0
+      grade: 1
     }
   },
   computed: {
