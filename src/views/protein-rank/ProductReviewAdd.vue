@@ -46,7 +46,7 @@ import Crying from '@/assets/image/crying.png'
 import Smiling from '@/assets/image/smiling.png'
 
 export default {
-  props: ['product', 'onDone'],
+  props: ['product', 'onDone', 'addReview'],
   data() {
     return {
       pros: '',
@@ -85,6 +85,13 @@ export default {
         offset: 1000
       })
 
+      this.addReview({
+        writer_name: this.$store.state.user.name,
+        writer_age: 20,
+        pros: this.pros,
+        cons: this.cons,
+        rating: this.rate
+      })
       this.onDone()
     }
   }
