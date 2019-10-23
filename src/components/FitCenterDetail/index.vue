@@ -73,7 +73,8 @@ export default {
       if (this.textarea.length < 10) {
         this.$message({
           message: '본문이 10글자 이상이어야 합니다.',
-          type: 'error'
+          type: 'error',
+          offset: 1000
         })
         return
       }
@@ -81,7 +82,8 @@ export default {
       if (this.grade < 1) {
         this.$message({
           message: '평점이 1점 이상이어야 합니다.',
-          type: 'error'
+          type: 'error',
+          offset: 1000
         })
         return
       }
@@ -91,7 +93,14 @@ export default {
         text: this.textarea,
         grade: this.grade
       })
+
       this.$store.commit('UPDATE_FIT_CENTER', this.focusCenter)
+
+      this.$message({
+        message: '리뷰가 성공적으로 등록되었습니다!',
+        type: 'success',
+        offset: 1000
+      })
     }
   }
 }
