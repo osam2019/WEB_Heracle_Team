@@ -110,10 +110,7 @@ export default {
   color: black;
   font-size: 20px;
 }
-.product-img {
-  width: 60px;
-  height: 60px;
-}
+
 .product-name {
   color: black;
 }

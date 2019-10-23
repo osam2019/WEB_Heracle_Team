@@ -80,5 +80,30 @@
         "img": "https://thumbnail14.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/8cc0/e45f49b996d9559f106965966b6e946fa8624ae6f6a01e1bc356f66b7dcf.jpg"
       }
     ]
+  },
+  {
+    "title": "맛 대신 건강을 위한 보충제 랭킹",
+    "subtitle": "보충제 랭킹",
+    "ranker": [
+      {
+        "id": 1,
+        "img": "https://static.wixstatic.com/media/9f158a_556ada69b99a4a24897491f740c47bd8.jpg/v1/fill/w_106,h_182,al_c,lg_1,q_80/9f158a_556ada69b99a4a24897491f740c47bd8.webp",
+        "name": "단백질 보충제",
+        "brand": "마이오틴",
+        "rating": 4.5
+      },
+      {
+        "id": 2,
+        "name": "임팩트 웨이 프로틴",
+        "brand": "마이 프로틴",
+        "img": "https://s1.thcdn.com/productimg/300/300/10530943-4414674035314392.jpg"
+      },
+      {
+        "id": 3,
+        "name": "퍼펙트 파워쉐이크",
+        "brand": "칼로바이",
+        "img": "https://thumbnail14.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/8cc0/e45f49b996d9559f106965966b6e946fa8624ae6f6a01e1bc356f66b7dcf.jpg"
+      }
+    ]
   }
 ]

@@ -1,12 +1,12 @@
 <template>
   <el-row class="item-container">
-    <el-col :span="8">
+    <el-col :span="4">
       <img :src="medalIcons[idx]">
     </el-col>
-    <el-col :span="8">
+    <el-col class="product-img-container" :span="10">
       <img class="product-img" :src="product.img">
     </el-col>
-    <el-col :span="8" class="product-info-container">
+    <el-col :span="10" class="product-info-container">
       <p>{{ product.brand }}</p>
       <p class="product-name">
         <b>{{ product.name }}</b>
@@ -28,17 +28,28 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss" scoped>
 .product-name {
   color: black;
 }
 .item-container {
+  padding : 10px;
+  border-bottom : 2px solid #d7e3f5;
+  &:hover{
+    cursor : pointer;
+  }
 }
-.product-img {
-  width: 100px;
-  height: 100px;
-  margin: 10px;
+// .item-container:first-of-type{
+//     border-top : 2px solid #d7e3f5;
+//   }
+.product-img-container{
+    text-align : center;
+  .product-img {
+    width: auto;
+    height : 100px;
+  }
 }
+
 .product-info-container {
 }
 </style>
