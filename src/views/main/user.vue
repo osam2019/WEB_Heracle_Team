@@ -1,27 +1,19 @@
 <template>
-  <el-card style="margin-bottom:20px;">
+  <el-card style="margin-bottom:20px; border-radius:15px; height:300px">
     <div slot="header" class="clearfix">
-      <span>안녕하세요 {{ user.name }}님</span>
+      <span class="user-info">안녕하세요  {{ user.name }} 님</span>
     </div>
+      <table class="user-table">
+        <tbody>
+          <template v-for="data in mockData">
+            <tr :key="data.name">
+              <td>{{ data.name }}</td>
+              <td>{{ data.value}}</td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
 
-    <div class="user-profile">
-        <span> 나이   : {{ user.age }}</span>
-        <span> 키     : {{ user.height }}</span>
-        <span> 몸무게 : {{ user.weight }}</span>
-        <span> 최근운동 : {{ user.latest }}</span>
-    </div>
-
-    <div class="user-bio">
-      <div class="user-education user-bio-section">
-        <div class="user-bio-section-header"><svg-icon icon-class="education" /><span>Education</span></div>
-        <div class="user-bio-section-body">
-          <div class="text-muted">
-            JS in Computer Science from the University of Technology
-          </div>
-        </div>
-      </div>
-
-    </div>
   </el-card>
 </template>
 
@@ -42,9 +34,36 @@ export default {
             latest : '',
             email: '',
             avatar: '',
-            roles: ''
+            roles: '',
+
         }
       }
+    }
+  },
+  data(){
+    return{
+      mockData : [
+      {
+        name : '성별',
+        value : '남'
+      },
+      {
+        name : '나이',
+        value : '22 세'
+      },
+      {
+        name : '키',
+        value : '184 cm'
+      },
+      {
+        name : '몸무게',
+        value : '84 kg'
+      },
+      {
+        name : 'BMI',
+        value : '25'
+      }
+    ],
     }
   }
 }
@@ -55,7 +74,15 @@ export default {
    margin: 0 auto;
    display: table;
  }
-
+ .user-info{
+   font-weight : bold;
+ }
+ .user-table{
+    width : 100%;
+    font-weight: bold;
+    font-size: 18px;
+    
+ }
  .text-muted {
    color: #777;
  }

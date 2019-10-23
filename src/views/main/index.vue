@@ -1,11 +1,7 @@
 <template>
   <div class="main-view-container">
     <el-row class="main-header">
-      <div class="logo-container"><img :src="logoImg"/></div>
-      <div class="serach-container" @click="routerToMap($event)">
-        <el-input class="search"   size="large" placeholder="Please input" v-model="input"></el-input>
-      </div>
-      <el-button class="icon" icon="el-icon-search" circle></el-button>
+      <img class = "main-header-img" :src="logoImg"/>
     </el-row>
     <el-row class="main-body" :gutter="20">
       <el-col :span="5">
@@ -101,16 +97,15 @@ export default {
   .main-header{
     display : flex;
     margin-bottom : 20px;
-    .logo-container{
-      width : 300px;
-      height : 50px;
-      margin-right : 20px;
-      img{
-        margin : 0 auto;
-        width  : auto;
-        height : 100%;
-      }
+    justify-content: center;
+
+    img{
+      margin : 0 auto;
+      width  : auto;
+      width : 200px;
+      height : 100%;
     }
+
     .serach-container{
       width : 1000px;
       height : 50px;
@@ -128,16 +123,17 @@ export default {
   .main-body{
     .left-main{
       .user-info{
+        // padding : 20px;
+        // border-radius :
         width : 100%;
         height : 300px;
-        background: #fff;
-        box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
-        border-color: rgba(0, 0, 0, .05);
       }
       .post-category{
+        padding : 20px;
+        border-radius : 15px;
         margin-top : 20px;
         width : 100%;
-        height : 500px;
+        height : 460px;
         background: #fff;
         box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
         border-color: rgba(0, 0, 0, .05);
@@ -151,9 +147,7 @@ export default {
         margin-top : 20px;
         width : 100%;
         height : 650px;
-        background: #fff;
-        box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
-        border-color: rgba(0, 0, 0, .05);
+
       }
     }
 
@@ -161,9 +155,6 @@ export default {
       .rank-router{
         width : 100%;
         height : 300px;
-        background: #fff;
-        box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
-        border-color: rgba(0, 0, 0, .05);
       }
     }
 

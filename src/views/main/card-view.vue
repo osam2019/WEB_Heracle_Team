@@ -1,16 +1,13 @@
 <template>
 <el-row>
-  <el-col class="card-body-container" :span="8" v-for="(o, index) in mockData" :key="index" :gutter="10" >
+  <el-col class="card-body-container" :span="8" v-for="(o, index) in mockData" :key="index" :body-style="{ padding: '5px' }" >
     <el-card class="card-body" :body-style="{ padding: '0px' }">
 			<div class="img-container">
-      	<img :src="o.img" class="image"/>
+      			<img :src="o.img" class="image"/>
 			</div>
     </el-card>
      <div class="body-container">
         <span class = "span-title">{{ o.title }}</span>
-        <!-- <div class="bottom clearfix">
-          <span class= "span-body"> {{o.shortBody}} </span>
-        </div> -->
       </div>
   </el-col>
 </el-row>
@@ -64,11 +61,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 	.card-body-container{
-		background-color : #efefef;
-		box-shadow: 0 14px 28px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.1);
+		padding : 5px;
+		text-align : center;
+		border-radius : 15px;
+		background: white;
+		border: 3px solid #f0f2f5;
+	
 		height : 325px;
 		.card-body{
 			height : 80%;
+			margin : 0;
 		}
 		.img-container{
 			position: relative; padding-top: 100%; /* 1:1 ratio */ overflow: hidden;
