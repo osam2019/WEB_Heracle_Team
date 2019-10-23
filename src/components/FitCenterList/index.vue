@@ -21,7 +21,7 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import { FETCH_CENTERS } from '@/store/actions.type'
+import { FETCH_CENTERS, SEARCH_CENTERS } from '@/store/actions.type'
 import { SET_FOCUS_CENTER } from '@/store/mutations.type'
 import FitCenterItem from '@/components/FitCenterItem'
 
@@ -42,39 +42,38 @@ export default {
       this.onItemClicked()
     },
     setPlace(place) {
-      this.$store.commit('SET_PLACE', {
+      const cur = {
         lat: place.geometry.location.lat(),
         lng: place.geometry.location.lng()
-      })
+      }
+      console.log(cur)
+      this.$store.commit('SET_PLACE', cur)
+      this.$store.dispatch(SEARCH_CENTERS, cur)
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-
 .fit-center-list {
   width: 100%;
   height: 100%;
-  
-  .input{
-    width : 100%;
-    input{
-      border-radius : 15px;
-      width : 100%;
-      height : 60px;
-      border : 10px solid #f0f2f5;
+
+  .input {
+    width: 100%;
+    input {
+      border-radius: 15px;
+      width: 100%;
+      height: 60px;
+      border: 10px solid #f0f2f5;
       // box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-      padding : 10px;
+      padding: 10px;
     }
   }
 
   .fit-list {
     list-style-type: none;
-    margin : 0;
-    padding : 0;
+    margin: 0;
+    padding: 0;
   }
-
 }
-
-
 </style>
