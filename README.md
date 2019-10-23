@@ -35,6 +35,13 @@
 npm install
 ```
 
+## Run by development mode
+
+```sh
+// Use 9527 Port
+npm run dev
+```
+
 ## Authors
 
 - [@Gyuhwan Kim](https://github.com/gghcode)
