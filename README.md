@@ -42,10 +42,20 @@ npm install
 npm run dev
 ```
 
+## Directory Structure
+
 ## Authors
 
 - [@Gyuhwan Kim](https://github.com/gghcode)
 - [@SangRyul Kim](https://github.com/SangRyul)
+
+## Known Issues
+
+Check [Github Issue List](https://github.com/urpx/heracle/issues)
+
+## Change Log
+
+Check [Github Pull Request](https://github.com/urpx/heracle/pulls?q=is%3Apr+is%3Aclosed)
 
 ## 🤝 Contributing
 
