@@ -40,6 +40,8 @@
 <script>
 import CenterReviewItem from '@/components/CenterReviewItem'
 import { mapState } from 'vuex'
+import { ADD_CENTER_REVIEW_TO_FOCUS } from '@/store/mutations.type.js'
+
 export default {
   components: {
     CenterReviewItem
@@ -88,13 +90,11 @@ export default {
         return
       }
 
-      this.$store.commit('ADD_CENTER_REVIEW', {
+      this.$store.commit(ADD_CENTER_REVIEW_TO_FOCUS, {
         user,
         text: this.textarea,
         grade: this.grade
       })
-
-      this.$store.commit('UPDATE_FIT_CENTER', this.focusCenter)
 
       this.$message({
         message: '리뷰가 성공적으로 등록되었습니다!',

@@ -1,5 +1,8 @@
 import { FETCH_CENTERS } from '@/store/actions.type'
-import { SET_FOCUS_CENTER } from '@/store/mutations.type'
+import {
+  SET_FOCUS_CENTER,
+  ADD_CENTER_REVIEW_TO_FOCUS
+} from '@/store/mutations.type'
 import centerListJson from '@/assets/json/center.json'
 
 const state = {
@@ -26,13 +29,14 @@ const mutations = {
 
     state.focusCenter = currentCenter.id === center.id ? null : center
   },
-  UPDATE_FIT_CENTER: (state, center) => {
-    for (let i = 0; i < state.centers.length; i++) {
-      const c = state.centers[i]
-      if (c.id === center.id) {
-        state.centers[i] = center
-      }
-    }
+  [ADD_CENTER_REVIEW_TO_FOCUS](state, review) {
+    const focusCenter = state.focusCenter
+
+    focusCenter.reviews.push({
+      writer: review.user.name,
+      contents: review.text,
+      grade: review.grade
+    })
   }
 }
 
