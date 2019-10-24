@@ -8,13 +8,24 @@
     </p>
     <ul>
       <li v-for="review of reviews" :key="review.pros" class="review-list">
-        <div>
+        <div class="review-container">
           <p>
             <b>{{ review.writer_name }}님의 리뷰</b>
-            {{ review.writer_age }} 세
           </p>
-          <p>{{ review.pros }}</p>
-          <el-rate v-model="review.rating" disabled show-score />
+          <p>{{ review.writer_age }} 세</p>
+          <div class="img-contents item-space">
+            <el-rate v-model="review.rating" disabled />
+            <p>2019.03.17</p>
+          </div>
+
+          <div class="img-contents item-space">
+            <img class="ic" :src="smiling">
+            <p>{{ review.pros }}</p>
+          </div>
+          <div class="img-contents">
+            <img class="ic" :src="crying">
+            <p>{{ review.cons }}</p>
+          </div>
         </div>
         <hr>
       </li>
@@ -22,11 +33,35 @@
   </div>
 </template>
 <script>
+import Crying from '@/assets/image/crying.png'
+import Smiling from '@/assets/image/smiling.png'
+
 export default {
-  props: ['reviews']
+  props: ['reviews'],
+  data() {
+    return {
+      smiling: Smiling,
+      crying: Crying
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
+.review-container {
+  margin-bottom: 10px;
+}
+.item-space {
+  margin-bottom: 10px;
+}
+.img-contents {
+  display: flex;
+  height: auto;
+}
+.ic {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
 .title {
   color: black;
   font-size: 20px;
@@ -37,7 +72,7 @@ export default {
 .status-txt {
   margin: 30px;
 }
-ul{
-  padding : 0;
+ul {
+  padding: 0;
 }
 </style>

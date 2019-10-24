@@ -11,7 +11,7 @@
       <ProductReviewAdd :product="product" :on-done="handleClose" :add-review="addReview" />
     </el-dialog>
     <el-row>
-      <el-col class="product-info" :span="10">
+      <el-col class="product-info" :span="12">
         <img :src="product.img">
         <p class="brand-name">브랜드: {{ product.brand }}</p>
         <p class="product-name">
@@ -22,9 +22,51 @@
           <p>
             <b class="title">평점</b>
           </p>
-          <div class="flex">
+          <div class="review-progress-bars">
+            <el-row class="review-progress">
+              <el-col span="6">
+                <el-rate v-model="rate[4]" class="center" />
+              </el-col>
+              <el-col span="15">
+                <el-progress :stroke-width="10" :percentage="70" :show-text="false" />
+              </el-col>
+            </el-row>
+            <el-row class="review-progress">
+              <el-col span="6">
+                <el-rate v-model="rate[3]" class="center" />
+              </el-col>
+              <el-col span="15">
+                <el-progress :stroke-width="10" :percentage="10" :show-text="false" />
+              </el-col>
+            </el-row>
+            <el-row class="review-progress">
+              <el-col span="6">
+                <el-rate v-model="rate[2]" class="center" />
+              </el-col>
+              <el-col span="15">
+                <el-progress :stroke-width="10" :percentage="40" :show-text="false" />
+              </el-col>
+            </el-row>
+            <el-row class="review-progress">
+              <el-col span="6">
+                <el-rate v-model="rate[1]" class="center" />
+              </el-col>
+              <el-col span="15">
+                <el-progress :stroke-width="10" :percentage="10" :show-text="false" />
+              </el-col>
+            </el-row>
+            <el-row class="review-progress">
+              <el-col span="6">
+                <el-rate v-model="rate[0]" class="center" />
+              </el-col>
+              <el-col span="15">
+                <el-progress :stroke-width="10" :percentage="30" :show-text="false" />
+              </el-col>
+            </el-row>
+          </div>
+          <div class="flex center">
             <el-rate v-model="product.rating" class="rate" disabled show-score />
-            <p>{{ (product.reviews ? product.reviews.length : 0) }}개 후기가 남겨져있습니다.</p>
+            <!-- <p>{{ (product.reviews ? product.reviews.length : 0) }}개 후기가 남겨져있습니다.</p> -->
           </div>
         </div>
         <div class="align-left">
@@ -37,14 +79,19 @@
         <hr>
         <el-collapse v-model="activeNames">
           <el-collapse-item title="성분" name="1">
-            <ProductComponent />
+            <ProductComponent
+              :components="product.components ? product.components : { all: [], warn: [], allergy: []}"
+            />
           </el-collapse-item>
           <el-collapse-item title="섭취 방법" name="2">
             <p>{{ product.eat_way }}</p>
           </el-collapse-item>
+          <el-collapse-item title="영양 정보" name="3">
+            <p>{{ product.eat_way }}</p>
+          </el-collapse-item>
         </el-collapse>
       </el-col>
-      <el-col class="product-detail" :span="14">
+      <el-col class="product-detail" :span="12">
         <ProductReviewList :reviews="product.reviews ? product.reviews : []" />
         <el-button type="primary" class="review-btn" @click="openAddReviewForm">리뷰 남기기</el-button>
       </el-col>
@@ -66,7 +113,8 @@ export default {
   data() {
     return {
       dialogVisible: false,
-      activeNames: ['1']
+      activeNames: ['1'],
+      rate: [1, 2, 3, 4, 5]
     }
   },
   methods: {
@@ -90,6 +138,18 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.review-progress-bars {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.review-progress {
+  // display: flex;
+}
+.center {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
 .flex {
   display: table;
 }
