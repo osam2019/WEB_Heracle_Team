@@ -44,6 +44,9 @@ npm install
 ```sh
 // Use 9527 Port
 npm run dev
+
+// production build
+VUE_APP_GOOGLE_MAP_TOKEN=${Google Map API Token} npm run build:prod
 ```
 
 ## Directory Structure
