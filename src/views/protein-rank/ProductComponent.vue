@@ -1,8 +1,8 @@
 <template>
   <div>
-    <p class="title">
+    <!-- <p class="title">
       <b>상품 성분</b>
-    </p>
+    </p>-->
   </div>
 </template>
 <script>

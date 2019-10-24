@@ -6,7 +6,7 @@
       :visible.sync="dialogVisible"
       width="60%"
       :before-close="handleClose"
-      :modal-append-to-body="false"
+      :append-to-body="true"
     >
       <ProductReviewAdd :product="product" :on-done="handleClose" :add-review="addReview" />
     </el-dialog>
@@ -18,10 +18,15 @@
           <b>제품명: {{ product.name }}</b>
         </p>
         <hr>
-        <p class="title align-left">
-          <b>평점</b>
-          <el-rate v-model="product.rating" class="rate" disabled show-score />
-        </p>
+        <div class="align-left">
+          <p>
+            <b class="title">평점</b>
+          </p>
+          <div class="flex">
+            <el-rate v-model="product.rating" class="rate" disabled show-score />
+            <p>{{ (product.reviews ? product.reviews.length : 0) }}개 후기가 남겨져있습니다.</p>
+          </div>
+        </div>
         <div class="align-left">
           <p class="title">
             <b>정가</b>
@@ -31,39 +36,37 @@
         <el-button class="full-btn" type="primary" @click="linkWithNewTab(product.buy_url)">구매하러 가기</el-button>
         <hr>
         <el-collapse v-model="activeNames">
-          <el-collapse-item title="섭취 방법" name="1">
+          <el-collapse-item title="성분" name="1">
+            <ProductComponent />
+          </el-collapse-item>
+          <el-collapse-item title="섭취 방법" name="2">
             <p>{{ product.eat_way }}</p>
           </el-collapse-item>
         </el-collapse>
-        <ProductComponent />
       </el-col>
       <el-col class="product-detail" :span="14">
         <ProductReviewList :reviews="product.reviews ? product.reviews : []" />
         <el-button type="primary" class="review-btn" @click="openAddReviewForm">리뷰 남기기</el-button>
-        <!-- <ProductReviewInput /> -->
       </el-col>
     </el-row>
-    <!-- <el-button type="primary" class="review-btn" @click="openAddReviewForm">리뷰 남기기</el-button> -->
   </div>
 </template>
 <script>
 import ProductReviewAdd from './ProductReviewAdd'
 import ProductComponent from './ProductComponent'
 import ProductReviewList from './ProductReviewList'
-// import ProductReviewInput from './ProductReviewInput'
 
 export default {
   components: {
     ProductReviewAdd,
     ProductComponent,
     ProductReviewList
-    // ProductReviewInput
   },
   props: ['product'],
   data() {
     return {
       dialogVisible: false,
-      activeNames: []
+      activeNames: ['1']
     }
   },
   methods: {
@@ -87,6 +90,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.flex {
+  display: table;
+}
 .title {
   color: black;
   font-size: 18px;
