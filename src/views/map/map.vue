@@ -66,7 +66,7 @@ export default {
 
   .list-container {
     border-right: 2px solid #b4c3d9;
-    width: 350px;
+    width: 450px;
     min-height: 100%;
   }
   .map-container {

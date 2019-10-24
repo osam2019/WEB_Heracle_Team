@@ -6,13 +6,16 @@
     "grade": 5,
     "reviews": [],
     "lat": 37.4473228,
-    "lng": 126.7894326
+    "lng": 126.7894326,
+    "promote": true
   },
   {
     "id": 1,
     "name": "한창헬스크럽",
     "address": "경기도 시흥시 은행동 536-3",
     "grade": 4.5,
+    "promote": true,
+    "new": true,
     "imgs": [
       "https://www.lottehotel.com/content/dam/lotte-hotel/lotte/samara/facilities/fitness-spa/gym/181126-1-2000-fac-LTSM.jpg.thumb.1440.1440.jpg",
       "https://img.sbs.co.kr/newimg/news/20160829/200974474_700.jpg",
@@ -41,7 +44,8 @@
     "imgs": [],
     "reviews": [],
     "lat": 37.4443125,
-    "lng": 126.7623323
+    "lng": 126.7623323,
+    "new": false
   },
   {
     "id": 3,
