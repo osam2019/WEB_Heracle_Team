@@ -7,12 +7,8 @@
         </el-carousel-item>
       </span>
     </el-carousel>
-    <div class="focus-container">
-      <span class="item-name">{{ focusCenter.name }}</span>
-      <span class="item-address">{{ focusCenter.address }}</span>
-      <el-rate v-model="focusCenter.grade" disabled show-score />
-    </div>
-    <hr/>
+    <FitCenterItem :center="focusCenter" />
+
     <div class="reviews">
       <h2>리뷰</h2>
       <div v-if="isEnable()" class="input-box">
@@ -30,7 +26,7 @@
           <el-button type="primary" round @click="onReviewSubmit">확인</el-button>
         </div>
       </div>
-      <hr/>
+      <hr>
       <ul>
         <li v-for="r of focusCenter.reviews" :key="r.id" class="col-md-6">
           <CenterReviewItem :review="r" />
@@ -41,13 +37,15 @@
 </template>
 
 <script>
+import FitCenterItem from '@/components/FitCenterItem'
 import CenterReviewItem from '@/components/CenterReviewItem'
 import { mapState } from 'vuex'
 import { ADD_CENTER_REVIEW_TO_FOCUS } from '@/store/mutations.type.js'
 
 export default {
   components: {
-    CenterReviewItem
+    CenterReviewItem,
+    FitCenterItem
   },
   data() {
     return {
@@ -110,16 +108,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-dialog{
-  border-radius : 15px;
+.el-dialog {
+  border-radius: 15px;
 }
 .input {
   width: 100%;
   height: 100px;
   display: table;
 }
-hr{
-  border : 1px solid #f0f2f5;
+hr {
+  border: 1px solid #f0f2f5;
 }
 .input-box {
   height: 100%;
@@ -129,31 +127,29 @@ hr{
   align-items: center;
   justify-content: center;
 }
-.reviews{
-  ul{
-    margin : 0;
-    padding : 0;
-    list-style-type : none;
+.reviews {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
   }
   .reviews-form {
     display: flex;
-    align-items : center;
+    align-items: center;
     justify-content: flex-end;
   }
 }
-.focus-container{
-  .item-name{
-    display : block;
-    font-size : 35px;
-    color : black;
-    margin-bottom : 10px;
-
+.focus-container {
+  .item-name {
+    display: block;
+    font-size: 35px;
+    color: black;
+    margin-bottom: 10px;
   }
-  .item-address{
-    display : block;
-    color : #999999;
-    margin-bottom : 5px;
+  .item-address {
+    display: block;
+    color: #999999;
+    margin-bottom: 5px;
   }
 }
-
 </style>
