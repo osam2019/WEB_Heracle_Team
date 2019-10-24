@@ -65,15 +65,122 @@
         "id": 2,
         "name": "임팩트 웨이 프로틴",
         "brand": "마이 프로틴",
+        "rating": 4,
+        "price": "12,500",
         "img": "https://s1.thcdn.com/productimg/300/300/10530943-4414674035314392.jpg",
-        "reviews": []
+        "buy_url": "https://www.myprotein.co.kr/sports-nutrition/impact-whey-protein/10530943.html",
+        "eat_way": "임팩트 웨이프로틴의 효과를 최대한으로 끌어올리길 원하신다면, 운동 30분전후, 본 제품 1스쿱 (25g)를 150-250ml의 물 또는 우유와 함께 마이프로틴 쉐이커 넣어 잘 흔들어 섭취하시는 것을 추천합니다.",
+        "components": {
+          "all": [
+            "Emulsifier",
+            "Golden Syrup Flavour",
+            "Fruity Cereal Flavour",
+            "Natural Strawberry Flavour",
+            "Whey Protein Concentrate"
+          ],
+          "warn": ["", ""],
+          "allergy": []
+        },
+        "reviews": [
+          {
+            "writer_name": "오징어땅콩",
+            "writer_age": 22,
+            "rating": 5,
+            "pros": "저는 항상 5키로씩 주문해서 먹었습니다. 역시 믿고 먹는 마프더라고요. 전혀 질리지가 않고 다 먹게 되더라고요. 솔티드 카라멜 - 스트로베리크림 - 말차맛 거를 타선이 1도 없네요. 담에 또 시켜먹겠습다.",
+            "cons": "아쉬운 점은 맛있어서 금방 먹어진다는 것"
+          },
+          {
+            "writer_name": "예승희",
+            "writer_age": 27,
+            "rating": 5,
+            "pros": "평생템 찾았습니다. 프로틴 먹고 몸짱되세요~^^",
+            "cons": "아쉬운 점은 없습니다."
+          },
+          {
+            "writer_name": "네네",
+            "writer_age": 24,
+            "rating": 4,
+            "pros": "프로틴 잘 못먹는데도 괜찮게 먹어요 밀크티 맛은 흑당 타먹고 싶음.. 우유나 아브에 타먹으면 맛있을 것 같은데 지금까지는 물에만 타먹어서 모르겠네요 요거트에 두가지 프로틴 섞어서 얼려서 아이스크림 처럼 먹었는데 쫀득하고 맛있었어요",
+            "cons": "브라우니 맛은 초코가 씹힐까 하고 초콜렛맛과 무엇이 다를까 하면서 사봤는데요 사실은 잘 모르겠어요 웨이프로틴은 마프에서 처음 산거라"
+          },
+          {
+            "writer_name": "임기선",
+            "writer_age": 21,
+            "rating": 5,
+            "pros": "저는 네츄럴 스트로베리 구매 하여서 먹게되었는데 역시 다른 리뷰보고 풀림이 좋다길래 얼마나 좋겠어 했는데 확실히 다르고 맛도 좋고 운동 후에 먹는즐거움도 있고 계속 이용할거같습니다. 앞으로도 열심히 구매하여서 좋은몸 만들도록 하겠습니다",
+            "cons": "제품은 좋지만, 배송이 너무 느려서 아쉽습니다."
+          },
+          {
+            "writer_name": "Hohey91",
+            "writer_age": 25,
+            "rating": 5,
+            "pros": "맛있네요. 한달먹고 재구매합니다. 초코맛이나 스트로베리가 맛있네요",
+            "cons": "배송이 너무 느려서 한번에 많이 사게 되네요."
+          }
+        ]
       },
       {
         "id": 3,
-        "name": "퍼펙트 파워쉐이크",
+        "name": "프로틴에이드",
         "brand": "칼로바이",
-        "img": "https://thumbnail14.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/8cc0/e45f49b996d9559f106965966b6e946fa8624ae6f6a01e1bc356f66b7dcf.jpg",
-        "reviews": []
+        "rating": 4,
+        "price": "39,900",
+        "img": "https://thumbnail11.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/15da/3ddcec466f771f3f980947b850b17b532f188fe97794399608f600ddd454.jpg",
+        "buy_url": "https://www.coupang.com/vp/products/318913528?itemId=1018781156&vendorItemId=5456777313&q=%ED%94%84%EB%A1%9C%ED%8B%B4+%EC%97%90%EC%9D%B4%EB%93%9C&itemsCount=36&searchId=b6ee439548594f4ca1e70d597c1e7850&rank=0&isAddedCart=",
+        "eat_way": "프로틴에이드는 RTD 타입으로 언제 어디서나 간편하게 먹을 수 있습니다.",
+        "components": {
+          "all": [
+            "티로신",
+            "글리신",
+            "세린",
+            "알라닌",
+            "글루탐산",
+            "라이신",
+            "로이신",
+            "메티오닌",
+            "발린",
+            "아르기린"
+          ],
+          "warn": ["", ""],
+          "allergy": []
+        },
+        "reviews": [
+          {
+            "writer_name": "오징어땅콩",
+            "writer_age": 22,
+            "rating": 5,
+            "pros": "저는 항상 5키로씩 주문해서 먹었습니다. 역시 믿고 먹는 마프더라고요. 전혀 질리지가 않고 다 먹게 되더라고요. 솔티드 카라멜 - 스트로베리크림 - 말차맛 거를 타선이 1도 없네요. 담에 또 시켜먹겠습다.",
+            "cons": "아쉬운 점은 맛있어서 금방 먹어진다는 것"
+          },
+          {
+            "writer_name": "예승희",
+            "writer_age": 27,
+            "rating": 5,
+            "pros": "평생템 찾았습니다. 프로틴 먹고 몸짱되세요~^^",
+            "cons": "아쉬운 점은 없습니다."
+          },
+          {
+            "writer_name": "네네",
+            "writer_age": 24,
+            "rating": 4,
+            "pros": "프로틴 잘 못먹는데도 괜찮게 먹어요 밀크티 맛은 흑당 타먹고 싶음.. 우유나 아브에 타먹으면 맛있을 것 같은데 지금까지는 물에만 타먹어서 모르겠네요 요거트에 두가지 프로틴 섞어서 얼려서 아이스크림 처럼 먹었는데 쫀득하고 맛있었어요",
+            "cons": "브라우니 맛은 초코가 씹힐까 하고 초콜렛맛과 무엇이 다를까 하면서 사봤는데요 사실은 잘 모르겠어요 웨이프로틴은 마프에서 처음 산거라"
+          },
+          {
+            "writer_name": "임기선",
+            "writer_age": 21,
+            "rating": 5,
+            "pros": "저는 네츄럴 스트로베리 구매 하여서 먹게되었는데 역시 다른 리뷰보고 풀림이 좋다길래 얼마나 좋겠어 했는데 확실히 다르고 맛도 좋고 운동 후에 먹는즐거움도 있고 계속 이용할거같습니다. 앞으로도 열심히 구매하여서 좋은몸 만들도록 하겠습니다",
+            "cons": "제품은 좋지만, 배송이 너무 느려서 아쉽습니다."
+          },
+          {
+            "writer_name": "Hohey91",
+            "writer_age": 25,
+            "rating": 5,
+            "pros": "맛있네요. 한달먹고 재구매합니다. 초코맛이나 스트로베리가 맛있네요",
+            "cons": "배송이 너무 느려서 한번에 많이 사게 되네요."
+          }
+        ]
       }
     ]
   },

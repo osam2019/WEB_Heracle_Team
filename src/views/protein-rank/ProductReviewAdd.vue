@@ -1,17 +1,19 @@
 <template>
   <div>
     <hr>
-    <el-row>
-      <el-col span="1">
+    <div class="prduct-info-container">
+      <span>
         <img class="product-img" :src="product.img">
-      </el-col>
-      <el-col span="8">
-        <p>{{ product.brand }}</p>
-        <p class="product-name">
-          <b>{{ product.name }}</b>
-        </p>
-      </el-col>
-    </el-row>
+      </span>
+      <div class="wrapper">
+        <span class="info-container">
+          <p>{{ product.brand }}</p>
+          <p class="product-name">
+            <b>{{ product.name }}</b>
+          </p>
+        </span>
+      </div>
+    </div>
     <hr>
     <div class="unit">
       <p class="title">
@@ -118,7 +120,27 @@ export default {
   font-size: 20px;
 }
 
+.wrapper {
+  margin-left: 30px;
+  display: table;
+}
+
+.product-img {
+  width: 100px;
+  height: 100px;
+}
+
 .product-name {
   color: black;
+}
+
+.prduct-info-container {
+  padding: 10px;
+  display: flex;
+}
+
+.info-container {
+  text-align: center;
+  vertical-align: middle;
 }
 </style>
