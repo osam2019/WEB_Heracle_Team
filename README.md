@@ -22,9 +22,9 @@
 
 https://heracle.netlify.com/
 
-### :memo: [개발 문서](https://github.com/urpx/heracle/blob/master/docs/devdocs.pdf)
+### :memo: [개발 문서](https://github.com/urpx/heracle/blob/master/docs/WEB_Heracle_Team.pdf)
 
-https://github.com/urpx/heracle/blob/master/docs/devdocs.pdf
+https://github.com/urpx/heracle/blob/master/docs/WEB_Heracle_Team.pdf
 
 ### :framed_picture: [PPT](https://github.com/urpx/heracle/blob/master/docs/heracle.ppt)
 
