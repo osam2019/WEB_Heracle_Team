@@ -1,7 +1,7 @@
 <template>
   <el-row class="item-container">
     <el-col :span="4">
-      <img :src="medalIcons[idx]">
+      <img class="medal-img" :src="medalIcons[idx]">
     </el-col>
     <el-col class="product-img-container" :span="10">
       <img class="product-img" :src="product.img">
@@ -29,24 +29,28 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.medal-img {
+  width: 50px;
+  height: 50px;
+}
 .product-name {
   color: black;
 }
 .item-container {
-  padding : 10px;
-  border-bottom : 2px solid #d7e3f5;
-  &:hover{
-    cursor : pointer;
+  padding: 10px;
+  border-bottom: 2px solid #d7e3f5;
+  &:hover {
+    cursor: pointer;
   }
 }
 // .item-container:first-of-type{
 //     border-top : 2px solid #d7e3f5;
 //   }
-.product-img-container{
-    text-align : center;
+.product-img-container {
+  text-align: center;
   .product-img {
     width: auto;
-    height : 100px;
+    height: 100px;
   }
 }
 
