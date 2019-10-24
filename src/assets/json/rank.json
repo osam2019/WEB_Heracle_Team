@@ -9,36 +9,55 @@
         "name": "단백질 보충제",
         "brand": "마이오틴",
         "rating": 4.5,
+        "price": "30,000",
+        "buy_url": "https://www.myprotein.co.kr/sports-nutrition/impact-whey-protein/10530943.html",
+        "eat_way": "임팩트 웨이프로틴의 효과를 최대한으로 끌어올리길 원하신다면, 운동 30분전후, 본 제품 1스쿱 (25g)를 150-250ml의 물 또는 우유와 함께 마이프로틴 쉐이커 넣어 잘 흔들어 섭취하시는 것을 추천합니다.",
+        "components": {
+          "all": [
+            "Emulsifier",
+            "Golden Syrup Flavour",
+            "Fruity Cereal Flavour",
+            "Natural Strawberry Flavour",
+            "Whey Protein Concentrate"
+          ],
+          "warn": ["", ""],
+          "allergy": []
+        },
         "reviews": [
           {
             "writer_name": "테스트 사용자",
             "writer_age": 20,
             "rating": 4.0,
-            "pros": "너무 좋다."
+            "pros": "너무 좋다.",
+            "cons": "단점은 딱히 없네요."
           },
           {
             "writer_name": "테스트 사용자2",
             "writer_age": 25,
             "rating": 2.8,
-            "pros": "빨리 빨리 껍데기만 하자"
+            "pros": "빨리 빨리 껍데기만 하자",
+            "cons": "단점은 딱히 없네요."
           },
           {
             "writer_name": "테스트 사용자3",
             "writer_age": 30,
             "rating": 3.5,
-            "pros": "쓸만 하네요"
+            "pros": "쓸만 하네요",
+            "cons": "단점은 딱히 없네요."
           },
           {
             "writer_name": "테스트 사용자4",
             "writer_age": 27,
             "rating": 1.8,
-            "pros": "맛이 없어요"
+            "pros": "맛이 없어요",
+            "cons": "단점은 딱히 없네요."
           },
           {
             "writer_name": "테스트 사용자5",
             "writer_age": 24,
             "rating": 4.5,
-            "pros": "맛있어요."
+            "pros": "맛있어요.",
+            "cons": "단점은 딱히 없네요."
           }
         ]
       },
@@ -87,9 +106,15 @@
     ]
   },
   {
-    "title": "맛 대신 건강을 위한 보충제 랭킹",
+    "title": "New 보충제 랭킹",
     "subtitle": "보충제 랭킹",
     "ranker": [
+      {
+        "id": 2,
+        "name": "임팩트 웨이 프로틴",
+        "brand": "마이 프로틴",
+        "img": "https://s1.thcdn.com/productimg/300/300/10530943-4414674035314392.jpg"
+      },
       {
         "id": 1,
         "img": "https://static.wixstatic.com/media/9f158a_556ada69b99a4a24897491f740c47bd8.jpg/v1/fill/w_106,h_182,al_c,lg_1,q_80/9f158a_556ada69b99a4a24897491f740c47bd8.webp",
@@ -97,12 +122,7 @@
         "brand": "마이오틴",
         "rating": 4.5
       },
-      {
-        "id": 2,
-        "name": "임팩트 웨이 프로틴",
-        "brand": "마이 프로틴",
-        "img": "https://s1.thcdn.com/productimg/300/300/10530943-4414674035314392.jpg"
-      },
+
       {
         "id": 3,
         "name": "퍼펙트 파워쉐이크",

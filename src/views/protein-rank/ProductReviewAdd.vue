@@ -97,7 +97,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .ic-title {
   height: auto;
   display: flex;
