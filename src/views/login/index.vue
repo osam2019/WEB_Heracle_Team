@@ -1,81 +1,73 @@
 <template>
   <div class="login-container">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
-
-      <div class="title-container">
-        <h3 class="title">Login Form</h3>
+    <div class="login-content-container">
+      <div class="login-context">
+        <h2>당신을 위한 헬스 정보 플랫폼. 헬스 케어, 관리, 식단정보를<br> 한 곳에서.</h2>
       </div>
+      <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
+        <div class="title-container">
+          <img :src="Logo"/>
+        </div>
 
-      <el-form-item prop="username">
-        <span class="svg-container">
-          <svg-icon icon-class="user" />
-        </span>
-        <el-input
-          ref="username"
-          v-model="loginForm.username"
-          placeholder="Username"
-          name="username"
-          type="text"
-          tabindex="1"
-          autocomplete="on"
-        />
-      </el-form-item>
-
-      <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
-        <el-form-item prop="password">
+        <el-form-item prop="username">
           <span class="svg-container">
-            <svg-icon icon-class="password" />
+            <svg-icon icon-class="user" />
           </span>
           <el-input
-            :key="passwordType"
-            ref="password"
-            v-model="loginForm.password"
-            :type="passwordType"
-            placeholder="Password"
-            name="password"
-            tabindex="2"
+            ref="username"
+            v-model="loginForm.username"
+            placeholder="Username"
+            name="username" 
+            type="text"
+            tabindex="1"
             autocomplete="on"
-            @keyup.native="checkCapslock"
-            @blur="capsTooltip = false"
-            @keyup.enter.native="handleLogin"
           />
-          <span class="show-pwd" @click="showPwd">
-            <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
-          </span>
         </el-form-item>
-      </el-tooltip>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+        <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
+          <el-form-item prop="password">
+            <span class="svg-container">
+              <svg-icon icon-class="password" />
+            </span>
+            <el-input
+              :key="passwordType"
+              ref="password"
+              v-model="loginForm.password"
+              :type="passwordType"
+              placeholder="Password"
+              name="password"
+              tabindex="2"
+              autocomplete="on"
+              @keyup.native="checkCapslock"
+              @blur="capsTooltip = false"
+              @keyup.enter.native="handleLogin"
+            />
+            <span class="show-pwd" @click="showPwd">
+              <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
+            </span>
+          </el-form-item>
+        </el-tooltip>
 
-      <div style="position:relative">
-        <div class="tips">
-          <span>Username : admin</span>
-          <span>Password : any</span>
+        <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+
+        <div style="position:relative">
+          <div class="tips">
+            OSAM2019 WEB 데모 Username과 Password 입니다.
+          </div>
+          <div class="tips">
+            <span>Username : admin</span>
+            <span>Password : any</span>
+          </div>
         </div>
-        <div class="tips">
-          <span style="margin-right:18px;">Username : editor</span>
-          <span>Password : any</span>
-        </div>
-
-        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">
-          Or connect with
-        </el-button>
-      </div>
-    </el-form>
-
-    <el-dialog title="Or connect with" :visible.sync="showDialog">
-      Can not be simulated on local, so please combine you own business simulation! ! !
-      <br>
-      <br>
-      <br>
-      <social-sign />
-    </el-dialog>
+      </el-form>
+    </div>
   </div>
 </template>
 
 <script>
 import { validUsername } from '@/utils/validate'
 import SocialSign from './components/SocialSignin'
+import Logo from '@/assets/image/title.png'
 
 export default {
   name: 'Login',
@@ -96,6 +88,7 @@ export default {
       }
     }
     return {
+      Logo : Logo,
       loginForm: {
         username: 'admin',
         password: '111111'
@@ -212,9 +205,9 @@ export default {
 /* 修复input 背景不协调 和光标变色 */
 /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
 
-$bg:#283443;
-$light_gray:#fff;
-$cursor: #fff;
+$bg:#f0f2f5;
+$light_gray:#000;
+$cursor: #000;
 
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
   .login-container .el-input input {
@@ -256,28 +249,58 @@ $cursor: #fff;
 </style>
 
 <style lang="scss" scoped>
-$bg:#2d3a4b;
+$bg:#f0f2f5;
 $dark_gray:#889aa4;
-$light_gray:#eee;
+$light_gray:#000;
+
+$assets: '~@/assets/';
 
 .login-container {
   min-height: 100%;
   width: 100%;
-  background-color: $bg;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.3), 
+      rgba(0, 0, 0, 0.3)
+    ),url( $assets + 'image/fitness-center.jpg') no-repeat center center fixed; 
   overflow: hidden;
+    display : flex;
+    justify-content: center;
+    align-items:center;
+  .login-content-container{
+    display : flex;
+    justify-content: space-between;
+    align-items:center;
+    width : 1200px;
+    height : 550px;
 
-  .login-form {
-    position: relative;
-    width: 520px;
-    max-width: 100%;
-    padding: 160px 35px 0;
-    margin: 0 auto;
-    overflow: hidden;
+    border-radius : 15px;
+    .login-context{
+      width : 550px;
+      height : 100%;
+      display : flex;
+      align-items: center;
+
+      h2{
+        color : white;
+        font-size : 50px;
+        font-weight: lighter;
+      }
+    }
+    .login-form {
+      background : white;
+      border-radius : 15px;
+      width: 520px;
+      height : 100%;
+      max-width: 100%;
+      padding : 40px;
+      overflow: hidden;
+    }
+    
   }
 
   .tips {
     font-size: 14px;
-    color: #fff;
+    color: #000000;
     margin-bottom: 10px;
 
     span {
@@ -298,12 +321,8 @@ $light_gray:#eee;
   .title-container {
     position: relative;
 
-    .title {
-      font-size: 26px;
-      color: $light_gray;
-      margin: 0px auto 40px auto;
-      text-align: center;
-      font-weight: bold;
+    img{
+      width : 100%;
     }
   }
 
