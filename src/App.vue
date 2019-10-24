@@ -11,9 +11,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap');
 #app{
   min-width : 1600px;
-  font-family: 'Noto Sans KR', sans-serif !important;
+  font-family: 'Do Hyeon', sans-serif !important;
 }
 </style>
