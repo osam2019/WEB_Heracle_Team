@@ -2,6 +2,7 @@
   <div class="unit-container">
     <el-dialog
       v-if="focusProduct !== null"
+      title="제품 상세 페이지"
       :visible.sync="dialogVisible"
       width="60%"
       height="400px"
@@ -9,10 +10,9 @@
     >
       <RankDetail :product="focusProduct" />
     </el-dialog>
-    
 
     <div class="unit-header">
-      <h2>{{ data.subtitle}}</h2>
+      <h2>{{ data.subtitle }}</h2>
       <span>{{ data.title }}</span>
     </div>
     <div class="unit-body">
@@ -24,11 +24,9 @@
           @click="openProductDetailPage(product)"
         >
           <RankUnitItem :product="product" :idx="idx" />
-          
         </li>
       </ul>
     </div>
-
   </div>
 </template>
 <script>
@@ -63,15 +61,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 .unit-header {
-  h2{
-    margin : 0 0 19px 0;
+  h2 {
+    margin: 0 0 19px 0;
   }
 }
-.unit-body{ 
-  margin : 20px 0;
-  ul{
-    padding : 0;
-    margin : 0;
+.unit-body {
+  margin: 20px 0;
+  ul {
+    padding: 0;
+    margin: 0;
   }
   .unit-li {
     list-style-type: none;
