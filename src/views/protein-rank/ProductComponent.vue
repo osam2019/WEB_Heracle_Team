@@ -6,6 +6,11 @@
     <!-- <p class="title">
       <b>상품 성분</b>
     </p>-->
+    <div class="allergy-container">
+      <el-alert class="allergy-noti" title="우유" type="error" effect="dark" :closable="false" />
+      <el-alert class="allergy-noti" title="대두" type="error" effect="dark" :closable="false" />
+    </div>
+
     <div class="progress">
       <el-progress
         :percentage="(components.all.length / components.all.length + components.warn.length) * 100"
@@ -25,6 +30,16 @@ export default {
 }
 </script>
 <style scoped>
+.allergy-container {
+  display: flex;
+  margin: 10px 10px;
+}
+.allergy-noti {
+  width: 100px;
+  margin-left: 10px;
+  display: table-cell;
+  vertical-align: middle;
+}
 .title {
   color: black;
 }
