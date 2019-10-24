@@ -18,11 +18,18 @@
 
 > Health Infomation Platform
 
-### ✨ [Demo Page](https://heracle.netlify.com/)
+## Authors
+국직 사이버작전사령부 일병 김규환, 김상렬
+- [@Gyuhwan Kim](https://github.com/gghcode)
+- [@SangRyul Kim](https://github.com/SangRyul)
 
+### ✨ [Demo Page](https://heracle.netlify.com/)
+https://heracle.netlify.com/
 ### :memo: [개발 문서](https://github.com/urpx/heracle/blob/master/docs/devdocs.pdf)
+https://github.com/urpx/heracle/blob/master/docs/devdocs.pdf
 
 ### :framed_picture: [PPT](https://github.com/urpx/heracle/blob/master/docs/heracle.ppt)
+https://github.com/urpx/heracle/blob/master/docs/heracle.ppt
 
 ## Summary
 
@@ -50,11 +57,6 @@ VUE_APP_GOOGLE_MAP_TOKEN=${Google Map API Token} npm run build:prod
 ```
 
 ## Directory Structure
-
-## Authors
-
-- [@Gyuhwan Kim](https://github.com/gghcode)
-- [@SangRyul Kim](https://github.com/SangRyul)
 
 ## Known Issues
 
