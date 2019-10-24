@@ -20,19 +20,11 @@
 
 ### ✨ [Demo Page](https://heracle.netlify.com/)
 
-https://heracle.netlify.com/
-
 ### :memo: [개발 문서](https://github.com/urpx/heracle/blob/master/docs/WEB_Heracle_Team.pdf)
-
-https://github.com/urpx/heracle/blob/master/docs/WEB_Heracle_Team.pdf
 
 ### :framed_picture: [PPT](https://github.com/urpx/heracle/blob/master/docs/WEB_Heracle_Team_pptx.pdf)
 
-https://github.com/urpx/heracle/blob/master/docs/heracle.ppt
-
 ### :movie_camera: [시연 영상](https://www.youtube.com/watch?v=1iz1Lzwur7o)
-
-https://www.youtube.com/watch?v=1iz1Lzwur7o
 
 ## Authors
 
