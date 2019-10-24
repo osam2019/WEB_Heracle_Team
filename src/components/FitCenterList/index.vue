@@ -5,18 +5,31 @@
         <gmap-autocomplete placeholder="주소 검색" @place_changed="setPlace" />
       </form>
     </div>
-    <div class="container">
-      <ul class="fit-list">
-        <li
-          v-for="center of centers"
-          :key="center.id"
-          class="col-md-6"
-          @click="onCenterItemClicked(center)"
-        >
-          <FitCenterItem :center="center" />
-        </li>
-      </ul>
-    </div>
+    <el-card class="box-card">
+      <div slot="header" class="clearfix">
+        <span>추천 헬스장</span>
+      </div>
+      <div v-for="o in 3" :key="o" class="text item" @click="onCenterItemClicked(centers[o])">
+        <FitCenterItem :center="centers[o]" />
+      </div>
+    </el-card>
+    <el-card class="box-card">
+      <div slot="header" class="clearfix">
+        <span>주변 헬스장</span>
+      </div>
+      <div class="container">
+        <ul class="fit-list">
+          <li
+            v-for="center of centers"
+            :key="center.id"
+            class="col-md-6"
+            @click="onCenterItemClicked(center)"
+          >
+            <FitCenterItem :center="center" />
+          </li>
+        </ul>
+      </div>
+    </el-card>
   </div>
 </template>
 <script>
