@@ -18,29 +18,28 @@
     </el-col>
     <el-col :sm="6" :lg="6" class="card-panel-col">
       <div class="card-panel-info">
-        <h2>몸무게(Body Weight)</h2>
+        <h2>BMI(Body Mass Index)</h2>
         <div class="card-panel-body">
-          <span class="num"> {{mockData[3].value}} </span>
-          <span class="detail"> 전주 대비 1kg 감소 </span>
+          <span class="num"> {{ BMI }} </span>
+          <img class="icon" :src="badIcon">
         </div>
         
       </div>
     </el-col>
     <el-col :sm="6" :lg="6" class="card-panel-col">
       <div class="card-panel-info">
-        <h2>BMI(Body Mass Index)</h2>
+        <h2>ABSI(A Body Shape Index)</h2>
         <div class="card-panel-body">
-          <span class="num">26.3</span>
+          <span class="num">{{ ABSI }}</span>
           <img class="icon" :src="goodIcon">
         </div>
       </div>
     </el-col>
     <el-col :sm="6" :lg="6" class="card-panel-col">
       <div class="card-panel-info">
-        <h2>ABSI(A Body Shape Index)</h2>
+        <h2>기초 대사량</h2>
         <div class="card-panel-body">
-          <span class="num">0.074</span>
-          <img class="icon" :src="badIcon">
+          <span class="num">{{ BMR }}Kcal</span>
         </div>
       </div>
     </el-col>
@@ -75,12 +74,22 @@
 import BarChart from './BarChart'
 import goodIcon from '@/assets/image/good.png'
 import badIcon from '@/assets/image/bad.png'
-
+import { mapGetters } from 'vuex'
+import { mapState } from 'vuex' 
 
 export default {
   components: {
     BarChart
   },
+    computed:{
+      // ...mapState({
+      //   'sex', 'age', 'height', 'weight', 'waistCircumference',
+      // }),
+			...mapGetters([
+				'BMI','ABSI','BMR'
+      ]),
+      
+    },
   data(){
     return{
       profileImg : "https://www.supaja.com/wrapkit-html/images/testimonial/5.jpg",
@@ -134,10 +143,6 @@ export default {
           name : '몸무게',
           value : '84 kg'
         },
-        {
-          name : 'BMI',
-          value : '25'
-        }
       ],
     }
   },
