@@ -26,7 +26,7 @@ https://heracle.netlify.com/
 
 https://github.com/urpx/heracle/blob/master/docs/WEB_Heracle_Team.pdf
 
-### :framed_picture: [PPT](https://github.com/urpx/heracle/blob/master/docs/heracle.ppt)
+### :framed_picture: [PPT](https://github.com/urpx/heracle/blob/master/docs/WEB_Heracle_Team_pptx.pdf)
 
 https://github.com/urpx/heracle/blob/master/docs/heracle.ppt
 
