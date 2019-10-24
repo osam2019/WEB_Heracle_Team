@@ -2,7 +2,15 @@
   <div class="dashboard-editor-container">
     <div class="health-care-dashboard">
       <h1>헬스 케어 대시보드</h1>
-      <el-button class="record" type="primary">이번 주 기록하기</el-button>
+      <el-button class="record" type="primary" @click="centerDialogVisible = true">이번 주 기록하기</el-button>
+      <el-dialog 
+        title="이번 주 기록하기"
+        :visible.sync="centerDialogVisible"
+        width="700px"
+        center>
+        <record-form v-on:close-dialog="dialogClose" ></record-form>
+
+      </el-dialog>
 
     </div>
     <panel-group />
@@ -30,6 +38,7 @@ import BarChart from './components/BarChart'
 import TransactionTable from './components/TransactionTable'
 import TodoList from './components/TodoList'
 import BoxCard from './components/BoxCard'
+import RecordForm from './components/RecordForm'
 
 export default {
   name: 'DashboardAdmin',
@@ -42,17 +51,24 @@ export default {
     BarChart,
     TransactionTable,
     TodoList,
-    BoxCard
+    BoxCard,
+    RecordForm
   },
   data() {
     return {
-      lineChartData: lineChartData.newVisitis
+      centerDialogVisible: false,
     }
   },
   methods: {
     handleSetLineChartData(type) {
       this.lineChartData = lineChartData[type]
+    },
+    dialogClose(){
+      this.centerDialogVisible = false
     }
+
+  },
+  mounted(){
   }
 }
 </script>

@@ -3,6 +3,7 @@
     <div slot="header" class="clearfix">
       <span class="user-info">안녕하세요  {{ user.name }} 님</span>
     </div>
+    <div class="card-body">
       <table class="user-table">
         <tbody>
           <template v-for="data in mockData">
@@ -13,15 +14,25 @@
           </template>
         </tbody>
       </table>
+      <el-button type="success" round @click="logout">로그아웃</el-button>
+    </div>
 
   </el-card>
 </template>
 
 <script>
 import PanThumb from '@/components/PanThumb'
+import { mapGetters } from 'vuex'
 
 export default {
   components: { PanThumb },
+  computed: {
+    ...mapGetters([
+      'sidebar',
+      'avatar',
+      'device'
+    ])
+  },
   props: {
     user: {
       type: Object,
@@ -65,6 +76,12 @@ export default {
       }
     ],
     }
+  },
+  methods : {
+    async logout() {
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    }
   }
 }
 </script>
@@ -86,8 +103,16 @@ export default {
  .text-muted {
    color: #777;
  }
-
- .user-profile {
+ .card-body{
+   height : 200px;
+   position:relative;
+ }
+  .el-button{
+    position:absolute;
+    right : 0px;
+    bottom : 0px;
+  }
+  .user-profile {
     span{
 			display : block;
     }

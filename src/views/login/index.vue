@@ -48,7 +48,7 @@
           </el-form-item>
         </el-tooltip>
 
-        <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+        <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">로그인</el-button>
 
         <div style="position:relative">
           <div class="tips">
@@ -56,7 +56,7 @@
           </div>
           <div class="tips">
             <span>Username : admin</span>
-            <span>Password : any</span>
+            <span>Password : 111111</span>
           </div>
         </div>
       </el-form>
