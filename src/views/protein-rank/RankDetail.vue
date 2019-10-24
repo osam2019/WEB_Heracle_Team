@@ -12,12 +12,29 @@
     </el-dialog>
     <el-row>
       <el-col class="product-info" :span="10">
-        <img :src="product.img" />
+        <img :src="product.img">
         <p class="brand-name">브랜드: {{ product.brand }}</p>
         <p class="product-name">
           <b>제품명: {{ product.name }}</b>
         </p>
-        <el-rate v-model="product.rating" disabled show-score />
+        <hr>
+        <p class="title align-left">
+          <b>평점</b>
+          <el-rate v-model="product.rating" class="rate" disabled show-score />
+        </p>
+        <div class="align-left">
+          <p class="title">
+            <b>정가</b>
+          </p>
+          <p>{{ product.price }} 원</p>
+        </div>
+        <el-button class="full-btn" type="primary" @click="linkWithNewTab(product.buy_url)">구매하러 가기</el-button>
+        <hr>
+        <el-collapse v-model="activeNames">
+          <el-collapse-item title="섭취 방법" name="1">
+            <p>{{ product.eat_way }}</p>
+          </el-collapse-item>
+        </el-collapse>
         <ProductComponent />
       </el-col>
       <el-col class="product-detail" :span="14">
@@ -45,7 +62,8 @@ export default {
   props: ['product'],
   data() {
     return {
-      dialogVisible: false
+      dialogVisible: false,
+      activeNames: []
     }
   },
   methods: {
@@ -59,15 +77,36 @@ export default {
     addReview(review) {
       console.log(review)
       this.product.reviews.push(review)
+    },
+    linkWithNewTab(url) {
+      console.log(url)
+      var win = window.open(url, '_blank')
+      win.focus()
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-.product-info{
-  text-align : center;
-  img{
-    height : 250px;
+.title {
+  color: black;
+  font-size: 18px;
+}
+.rate {
+  margin-top: 10px;
+}
+.align-left {
+  text-align: left;
+}
+.full-btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.product-info {
+  padding: 20px;
+  text-align: center;
+  img {
+    height: 250px;
   }
 }
 .brand-name {
@@ -77,6 +116,6 @@ export default {
 }
 .review_btn {
   width: auto;
-  margin : 0 auto;
+  margin: 0 auto;
 }
 </style>

@@ -1,5 +1,15 @@
 <template>
   <div>
-    <p>상품 성분 뷰</p>
+    <p class="title">
+      <b>상품 성분</b>
+    </p>
   </div>
 </template>
+<script>
+export default {}
+</script>
+<style scoped>
+.title {
+  color: black;
+}
+</style>

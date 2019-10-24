@@ -4,7 +4,7 @@
       <router-link to="/main">
         <img :src="logo" class="logo">
       </router-link>
-    </div> -->
+    </div>-->
     <div class="body-container">
       <div class="list-container">
         <FitCenterList :on-item-clicked="onItemClicked" />
@@ -12,6 +12,7 @@
       <div class="map-container">
         <GoogleMap class="google-map" />
         <el-dialog
+          title="헬스장 상세 정보"
           width="50%"
           top="1em"
           :visible.sync="dialogVisible"
@@ -64,7 +65,7 @@ export default {
   min-height: 100vh;
 
   .list-container {
-    border-right : 2px solid #b4c3d9;
+    border-right: 2px solid #b4c3d9;
     width: 350px;
     min-height: 100%;
   }
@@ -74,11 +75,9 @@ export default {
     width: calc(100% - 300px);
 
     // dialog css
-    .dialog{
-      margin : 1em 0 0 0 ;
+    .dialog {
+      margin: 1em 0 0 0;
     }
-
-
   }
 }
 </style>
