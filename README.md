@@ -20,6 +20,10 @@
 
 ### ✨ [Demo Page](https://heracle.netlify.com/)
 
+### :memo: [개발 문서](https://github.com/urpx/heracle/blob/master/docs/devdocs.pdf)
+
+### :framed_picture: [PPT](https://github.com/urpx/heracle/blob/master/docs/heracle.ppt)
+
 ## Summary
 
 헤라클은 분산화되어 있는 유용한 헬스 정보들을 한곳에 모아 사용자에게 효과적으로 헬스를 돕는 헬스 정보 플랫폼입니다. 헤라클은 헬스 식용품 카테고리(운동 기구, 스포츠 의류, 단백질 식품 등) 별 랭킹, 지역별 동네 헬스장 리뷰, 전문 트레이너의 헬스 콘텐츠와 같은 분산되어 있는 헬스 정보들을 헤라클에서 모두 찾아볼 수 있도록 도와 사용자가 다른 고민 없이 운동에만 집중할 수 있는 환경을 제공합니다.
