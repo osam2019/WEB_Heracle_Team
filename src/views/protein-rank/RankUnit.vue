@@ -5,6 +5,7 @@
       title="제품 상세 페이지"
       :visible.sync="dialogVisible"
       width="60%"
+      top="1em"
       height="400px"
       :before-close="handleClose"
     >
